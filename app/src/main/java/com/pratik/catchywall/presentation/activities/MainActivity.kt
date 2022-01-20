@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         listenBackStackChange()
     }
@@ -29,14 +29,7 @@ class MainActivity : AppCompatActivity() {
         val navHostChildFragmentManager = navHostFragment?.childFragmentManager
 
         navHostChildFragmentManager?.addOnBackStackChangedListener {
-            val backStackEntryCount = navHostChildFragmentManager.backStackEntryCount
-            val fragments = navHostChildFragmentManager.fragments
 
-//            Toast.makeText(
-//                this,
-//                "Main graph backStackEntryCount: $backStackEntryCount, fragments: $fragments",
-//                Toast.LENGTH_SHORT
-//            ).show()
         }
     }
 }
