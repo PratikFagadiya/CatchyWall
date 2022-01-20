@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/mainHostFragment">
+
+    <fragment
+        android:id="@+id/mainHostFragment"
+        android:name="com.pratik.catchywall.presentation.fragments.MainHostFragment"
+        android:label="MainHostFragment">
+
+        <action
+            android:id="@+id/action_mainHostFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+        <action
+            android:id="@+id/action_mainHostFragment_to_likedFragment"
+            app:destination="@id/likedFragment" />
+
+        <action
+            android:id="@+id/action_mainHostFragment_to_mainMenuBottomSheetDialog"
+            app:destination="@id/mainMenuBottomSheetDialog" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.pratik.catchywall.presentation.fragments.SearchFragment"
+        android:label="SearchFragment" />
+
+    <fragment
+        android:id="@+id/likedFragment"
+        android:name="com.pratik.catchywall.presentation.fragments.LikedFragment"
+        android:label="LikedFragment" />
+
+    <dialog
+        android:id="@+id/mainMenuBottomSheetDialog"
+        android:name="com.pratik.catchywall.presentation.dialogs.MainMenuBottomSheetDialog"
+        android:label="MainMenuBottomSheetDialog" />
+
+</navigation>
