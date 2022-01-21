@@ -6,8 +6,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 
 import com.pratik.catchywall.R
+import com.pratik.catchywall.data.model.CollectionResponseModel
 import com.pratik.catchywall.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var activityMainBinding: ActivityMainBinding
