@@ -9,15 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentCollectionBinding
+import com.pratik.catchywall.presentation.adapters.CollectionListAdapter
 import com.pratik.catchywall.presentation.viewmodels.CollectionViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CollectionFragment : Fragment(R.layout.fragment_collection) {
 
-    private var fragmentCollectionBinding: FragmentCollectionBinding? = null
+    lateinit var fragmentCollectionBinding: FragmentCollectionBinding
+    private val collectionViewModel by viewModels<CollectionViewModel>()
 
-    lateinit var collectionViewModel: CollectionViewModel
+    lateinit var collectionListAdapter: CollectionListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,19 +31,21 @@ class CollectionFragment : Fragment(R.layout.fragment_collection) {
         savedInstanceState: Bundle?
     ): View {
         fragmentCollectionBinding = FragmentCollectionBinding.inflate(inflater, container, false)
-
-        return fragmentCollectionBinding!!.root
+        return fragmentCollectionBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        collectionViewModel = ViewModelProvider(this)[CollectionViewModel::class.java]
+        fragmentCollectionBinding.rvCollectionList.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            collectionListAdapter = CollectionListAdapter()
+            adapter = collectionListAdapter
+        }
+
 
         collectionViewModel.collectionList.observe(viewLifecycleOwner) { collectionList ->
-
-            Log.i("TAG", "onViewCreated: $collectionList")
-
+            collectionListAdapter.submitData(viewLifecycleOwner.lifecycle, collectionList)
         }
     }
 }

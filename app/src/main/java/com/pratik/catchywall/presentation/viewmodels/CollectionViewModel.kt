@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CollectionViewModel @Inject constructor(val collectionRepository: CollectionRepository) : ViewModel(){
+class CollectionViewModel @Inject constructor(collectionRepository: CollectionRepository) : ViewModel(){
 
 //    fun getCollectionList(): Flow<PagingData<>>
 

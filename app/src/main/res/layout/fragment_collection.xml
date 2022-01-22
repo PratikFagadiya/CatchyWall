@@ -5,12 +5,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="COLLECTION"
-            android:textStyle="bold"
-            android:textColor="@color/black"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCollectionList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
