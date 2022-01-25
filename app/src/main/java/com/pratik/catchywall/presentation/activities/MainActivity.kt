@@ -2,7 +2,6 @@ package com.pratik.catchywall.presentation.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 
 import com.pratik.catchywall.R
@@ -34,4 +33,5 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
 }

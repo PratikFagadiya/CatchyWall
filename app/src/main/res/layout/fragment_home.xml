@@ -5,10 +5,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="HOME"
-            android:textStyle="bold"
-            android:textColor="@color/black"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHomePics"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

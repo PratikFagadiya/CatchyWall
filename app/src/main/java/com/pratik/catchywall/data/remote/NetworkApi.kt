@@ -23,7 +23,7 @@ interface NetworkApi {
     @GET("photos")
     suspend fun getHomePhotosList(
         @Query("page") page: Int,
-        @Query("per_page") per_page: Int = 15,
+        @Query("per_page") per_page: Int,
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<HomeResponseModelItem>
 

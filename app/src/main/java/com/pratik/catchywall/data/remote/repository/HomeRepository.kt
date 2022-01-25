@@ -4,20 +4,15 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.liveData
 import com.pratik.catchywall.data.remote.NetworkApi
-import com.pratik.catchywall.data.remote.pagingsources.CollectionPagingSource
+import com.pratik.catchywall.data.remote.pagingsources.HomePagingSource
 import javax.inject.Inject
-
 
 class HomeRepository @Inject constructor(private val networkApi: NetworkApi) {
 
-//    fun getHomePicsList() = Pager(
-//        config = PagingConfig(
-//            pageSize = 20,
-//            maxSize = 100,
-//            enablePlaceholders = false
-//        ),
-//        pagingSourceFactory = { CollectionPagingSource() }
-//    ).liveData
+    fun getHomePicsList() = Pager(
+        config = PagingConfig(pageSize = 20, maxSize = 100, enablePlaceholders = false),
+        pagingSourceFactory = { HomePagingSource(networkApi) }
+    ).liveData
 
 
 }

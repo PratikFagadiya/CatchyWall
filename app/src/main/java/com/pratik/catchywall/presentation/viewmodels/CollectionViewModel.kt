@@ -9,12 +9,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CollectionViewModel @Inject constructor(collectionRepository: CollectionRepository) : ViewModel(){
+class CollectionViewModel @Inject constructor(collectionRepository: CollectionRepository) :
+    ViewModel() {
 
-//    fun getCollectionList(): Flow<PagingData<>>
-
-    val collectionList =collectionRepository.getCollectionList().cachedIn(viewModelScope)
-
+    val collectionList = collectionRepository.getCollectionList().cachedIn(viewModelScope)
 
 
 }
