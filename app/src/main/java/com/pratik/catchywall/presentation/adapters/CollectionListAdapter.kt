@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pratik.catchywall.data.model.CollectionResponseModelItem
 import com.pratik.catchywall.databinding.ItemLayoutCollectionBinding
+import com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener
 
-class CollectionListAdapter :
+class CollectionListAdapter(var collectionItemUserClickListener: CollectionItemUserClickListener) :
 
     PagingDataAdapter<CollectionResponseModelItem, CollectionListAdapter.ViewHolder>(
         DiffUtilCallback()
@@ -16,15 +17,19 @@ class CollectionListAdapter :
 
     class ViewHolder(view: ItemLayoutCollectionBinding) : RecyclerView.ViewHolder(view.root) {
 
-        var itemLayoutCollectionBinding: ItemLayoutCollectionBinding = view
+        private var itemLayoutCollectionBinding: ItemLayoutCollectionBinding = view
 
-        fun bind(collectionResponseModel: CollectionResponseModelItem?) {
+        fun bind(
+            collectionResponseModel: CollectionResponseModelItem?,
+            collectionItemUserClickListener: CollectionItemUserClickListener
+        ) {
             itemLayoutCollectionBinding.collectionResponseModelItem = collectionResponseModel
+            itemLayoutCollectionBinding.userClick = collectionItemUserClickListener
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), collectionItemUserClickListener)
     }
 
     override fun onCreateViewHolder(
@@ -34,8 +39,6 @@ class CollectionListAdapter :
 
         val itemLayoutCollectionBinding =
             ItemLayoutCollectionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-//        return
 
         return ViewHolder(itemLayoutCollectionBinding)
     }

@@ -7,6 +7,10 @@
             name="collectionResponseModelItem"
             type="com.pratik.catchywall.data.model.CollectionResponseModelItem" />
 
+        <variable
+            name="userClick"
+            type="com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -34,6 +38,7 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
+            android:onClick="@{() -> userClick.collectionItemUserClick(collectionResponseModelItem.user.name)}"
             app:layout_constraintLeft_toLeftOf="@id/imgColverPic"
             app:layout_constraintTop_toBottomOf="@id/imgColverPic"
             app:roundedLoadImage="@{collectionResponseModelItem.user.profile_image.large}"
