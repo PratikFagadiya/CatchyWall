@@ -11,6 +11,10 @@
             name="userClick"
             type="com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener" />
 
+        <variable
+            name="collectionViewModel"
+            type="com.pratik.catchywall.presentation.viewmodels.CollectionViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
