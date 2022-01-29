@@ -13,5 +13,4 @@ class CollectionViewModel @Inject constructor(collectionRepository: CollectionRe
 
     val collectionList = collectionRepository.getCollectionList().cachedIn(viewModelScope)
 
-
 }
