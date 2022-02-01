@@ -42,7 +42,7 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
-            android:onClick="@{() -> userClick.collectionItemUserClick(collectionResponseModelItem.user.name)}"
+            android:onClick="@{() -> userClick.collectionItemUserClick(collectionResponseModelItem.user)}"
             app:layout_constraintLeft_toLeftOf="@id/imgColverPic"
             app:layout_constraintTop_toBottomOf="@id/imgColverPic"
             app:roundedLoadImage="@{collectionResponseModelItem.user.profile_image.large}"

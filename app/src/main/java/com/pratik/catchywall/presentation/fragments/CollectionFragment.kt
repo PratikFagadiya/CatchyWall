@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
+import com.pratik.catchywall.data.model.UserXX
 import com.pratik.catchywall.databinding.FragmentCollectionBinding
 import com.pratik.catchywall.presentation.adapters.CollectionListAdapter
 import com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener
@@ -46,8 +48,11 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
         })
     }
 
-    override fun collectionItemUserClick(userName: String) {
+    override fun collectionItemUserClick(userModel: UserXX) {
         // TODO: 25-01-2022 Go To User profile
-        Toast.makeText(requireContext(), "User Name is $userName", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(requireContext(), "User Name is $userName", Toast.LENGTH_SHORT).show()
+
+        findNavController().navigate(R.id.action_collectionFragment_to_userProfileFragment, bundleOf("userModel" to userModel))
+
     }
 }

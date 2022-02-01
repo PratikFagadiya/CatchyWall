@@ -7,8 +7,9 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/txtDemoText"
             android:layout_width="match_parent"
-            android:layout_height="150sp"
+            android:layout_height="100dp"
             android:gravity="center"
             android:text="Hello BottomSheet"
             app:layout_constraintTop_toTopOf="parent" />
