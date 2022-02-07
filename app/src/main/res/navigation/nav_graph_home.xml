@@ -8,19 +8,27 @@
         android:id="@+id/homeFragment"
         android:name="com.pratik.catchywall.presentation.fragments.HomeFragment"
         android:label="HomeFragment" />
+
     <fragment
         android:id="@+id/collectionFragment"
         android:name="com.pratik.catchywall.presentation.fragments.CollectionFragment"
-        android:label="CollectionFragment" >
+        android:label="CollectionFragment">
+
         <action
             android:id="@+id/action_collectionFragment_to_userProfileFragment"
-            app:destination="@id/userProfileFragment" />
-        <argument
-            android:name="user"
-            app:argType="com.pratik.catchywall.data.model.UserXX" />
+            app:destination="@id/userProfileFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
+
+
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.pratik.catchywall.presentation.fragments.UserProfileFragment"
-        android:label="UserProfileFragment" />
+        android:label="UserProfileFragment">
+        <!--        <argument-->
+        <!--            android:name="user"-->
+        <!--            app:argType="com.pratik.catchywall.data.model.UserXX" />-->
+    </fragment>
+
 </navigation>

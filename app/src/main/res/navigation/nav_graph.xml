@@ -21,6 +21,10 @@
             android:id="@+id/action_mainHostFragment_to_mainMenuBottomSheetDialog"
             app:destination="@id/mainMenuBottomSheetDialog" />
 
+        <action
+            android:id="@+id/action_mainHostFragment_to_userProfileFragment2"
+            app:destination="@id/userProfileFragment2" />
+
     </fragment>
 
     <fragment
@@ -33,9 +37,19 @@
         android:name="com.pratik.catchywall.presentation.fragments.LikedFragment"
         android:label="LikedFragment" />
 
+    <fragment
+        android:id="@+id/userProfileFragment2"
+        android:name="com.pratik.catchywall.presentation.fragments.UserProfileFragment"
+        android:label="UserProfileFragment">
+        <argument
+            android:name="userProfileMode"
+            app:argType="com.pratik.catchywall.data.model.UserXX" />
+    </fragment>
+
     <dialog
         android:id="@+id/mainMenuBottomSheetDialog"
         android:name="com.pratik.catchywall.presentation.dialogs.MainMenuBottomSheetDialog"
         android:label="MainMenuBottomSheetDialog" />
+
 
 </navigation>

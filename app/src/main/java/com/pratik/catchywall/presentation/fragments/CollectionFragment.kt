@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -37,6 +36,7 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         fragmentCollectionBinding.rvCollectionList.apply {
             layoutManager = LinearLayoutManager(requireContext())
             collectionListAdapter = CollectionListAdapter(this@CollectionFragment)
@@ -49,10 +49,10 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
     }
 
     override fun collectionItemUserClick(userModel: UserXX) {
-        // TODO: 25-01-2022 Go To User profile
-//        Toast.makeText(requireContext(), "User Name is $userName", Toast.LENGTH_SHORT).show()
 
-        findNavController().navigate(R.id.action_collectionFragment_to_userProfileFragment, bundleOf("userModel" to userModel))
+        findNavController().navigate(
+            MainHostFragmentDirections.actionMainHostFragmentToUserProfileFragment2(userModel)
+        )
 
     }
 }

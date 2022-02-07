@@ -14,11 +14,13 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
     lateinit var fragmentUserProfileBinding: FragmentUserProfileBinding
 
     private val userProfileModel by lazy {
-        arguments?.get("userModel")
+        arguments?.let {
+            UserProfileFragmentArgs.fromBundle(it).userProfileMode
+        }
     }
 
-
-    override fun onCreateView(
+    override
+    fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +32,6 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        Toast.makeText(activity,"$userProfileModel?")
-
+        fragmentUserProfileBinding.userDetail = userProfileModel
     }
 }
