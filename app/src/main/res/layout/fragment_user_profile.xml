@@ -8,6 +8,8 @@
             name="userDetail"
             type="com.pratik.catchywall.data.model.UserXX" />
 
+        <import type="android.view.View" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,12 +17,61 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/imgUserProfile"
             roundImage="@{userDetail.profile_image.large}"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            app:layout_constraintBottom_toBottomOf="@id/linearUserSimpelDetail"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linearUserSimpelDetail"
             tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linearUserSimpelDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toRightOf="@id/imgUserProfile"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:text="@{userDetail.name}"
+                android:textStyle="bold"
+                tools:text="Pratik Fagadiya" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:text="@{userDetail.username}"
+                tools:text="Pratikfagadiya" />
+
+            <TextView
+                isTextVisible="@{userDetail.location}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:text="@{userDetail.location}"
+                tools:text="Surat" />
+
+            <TextView
+                isTextVisible="@{userDetail.portfolio_url}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:text="@{userDetail.portfolio_url}"
+                tools:text="https://stackoverflow.com/users/12833551/pratik-fagadiya" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

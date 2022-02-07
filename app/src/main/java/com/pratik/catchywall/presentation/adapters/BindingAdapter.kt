@@ -2,6 +2,7 @@ package com.pratik.catchywall.presentation.adapters
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -55,7 +56,6 @@ fun loadImageWith20dpAndPlaceholderColor(
     imageUrl: String = "",
     placeholderColor: String
 ) {
-
     imageView.let {
         Glide.with(imageView.context).load(imageUrl)
             .placeholder(
@@ -67,4 +67,19 @@ fun loadImageWith20dpAndPlaceholderColor(
             .into(imageView)
     }
 
+}
+
+
+@BindingAdapter("isTextVisible")
+fun isTextVisible(
+    view: View,
+    text: String? = ""
+) {
+    view.let {
+        if (text == "" || text == null) {
+            view.visibility = View.INVISIBLE
+        } else {
+            view.visibility = View.VISIBLE
+        }
+    }
 }
