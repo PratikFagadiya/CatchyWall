@@ -1,0 +1,24 @@
+package com.pratik.catchywall.presentation.adapters
+
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.pratik.catchywall.presentation.fragments.UserProfileCollectionsFragment
+import com.pratik.catchywall.presentation.fragments.UserProfileLikesFragment
+import com.pratik.catchywall.presentation.fragments.UserProfilePhotosFragment
+
+class UserFragmentStateAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+
+    override fun getItemCount(): Int {
+        return 3
+    }
+
+    override fun createFragment(position: Int): Fragment {
+        return when (position) {
+            0 -> UserProfilePhotosFragment()
+            1 -> UserProfileLikesFragment()
+            2 -> UserProfileCollectionsFragment()
+            else -> UserProfilePhotosFragment()
+        }
+    }
+
+}

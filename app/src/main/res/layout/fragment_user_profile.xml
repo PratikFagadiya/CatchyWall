@@ -21,13 +21,13 @@
             roundImage="@{userDetail.profile_image.large}"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="@id/linearUserSimpelDetail"
+            app:layout_constraintBottom_toBottomOf="@id/linearUserSimpleDetail"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/linearUserSimpelDetail"
+            app:layout_constraintTop_toTopOf="@id/linearUserSimpleDetail"
             tools:ignore="ContentDescription" />
 
         <LinearLayout
-            android:id="@+id/linearUserSimpelDetail"
+            android:id="@+id/linearUserSimpleDetail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -71,7 +71,34 @@
                 android:text="@{userDetail.portfolio_url}"
                 tools:text="https://stackoverflow.com/users/12833551/pratik-fagadiya" />
 
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtDesciption"
+            isTextVisible="@{userDetail.bio}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:padding="3dp"
+            android:text="@{userDetail.bio}"
+            app:layout_constraintTop_toBottomOf="@id/linearUserSimpleDetail"
+            tools:text="Description" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtDesciption"
+            app:tabMode="fixed" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

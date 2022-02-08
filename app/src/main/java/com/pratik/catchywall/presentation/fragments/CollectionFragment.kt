@@ -46,6 +46,7 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
         collectionViewModel.collectionList.observe(viewLifecycleOwner, { collectionList ->
             collectionListAdapter.submitData(viewLifecycleOwner.lifecycle, collectionList)
         })
+
     }
 
     override fun collectionItemUserClick(userModel: UserXX) {

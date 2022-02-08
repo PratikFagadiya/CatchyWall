@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentUserProfileBinding
+import com.pratik.catchywall.presentation.adapters.UserFragmentStateAdapter
 
 class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
 
@@ -33,5 +34,18 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
         super.onViewCreated(view, savedInstanceState)
 
         fragmentUserProfileBinding.userDetail = userProfileModel
+
+        fragmentUserProfileBinding.viewPager.adapter = UserFragmentStateAdapter(this)
+
+        TabLayoutMediator(
+            fragmentUserProfileBinding.tabLayout, fragmentUserProfileBinding.viewPager
+        ) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Photos"
+                1 -> tab.text = "Likes"
+                2 -> tab.text = "Collections"
+            }
+        }.attach()
+
     }
 }
