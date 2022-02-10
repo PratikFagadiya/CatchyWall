@@ -77,7 +77,7 @@ fun isTextVisible(
 ) {
     view.let {
         if (text == "" || text == null) {
-            view.visibility = View.INVISIBLE
+            view.visibility = View.GONE
         } else {
             view.visibility = View.VISIBLE
         }

@@ -21,54 +21,64 @@
             roundImage="@{userDetail.profile_image.large}"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="@id/linearUserSimpleDetail"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/linearUserSimpleDetail"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
 
         <LinearLayout
             android:id="@+id/linearUserSimpleDetail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/imgUserProfile"
             app:layout_constraintLeft_toRightOf="@id/imgUserProfile"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@id/imgUserProfile">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:maxLines="1"
-                android:padding="3dp"
                 android:text="@{userDetail.name}"
+                android:textColor="@color/text_dark_color"
                 android:textStyle="bold"
                 tools:text="Pratik Fagadiya" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:maxLines="1"
-                android:padding="3dp"
                 android:text="@{userDetail.username}"
+                android:textColor="@color/text_light_color"
                 tools:text="Pratikfagadiya" />
 
             <TextView
                 isTextVisible="@{userDetail.location}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:maxLines="1"
-                android:padding="3dp"
                 android:text="@{userDetail.location}"
+                android:textColor="@color/text_light_color"
                 tools:text="Surat" />
 
             <TextView
                 isTextVisible="@{userDetail.portfolio_url}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:maxLines="1"
-                android:padding="3dp"
+                
                 android:text="@{userDetail.portfolio_url}"
+                android:textColor="@color/text_light_color"
                 tools:text="https://stackoverflow.com/users/12833551/pratik-fagadiya" />
 
 
@@ -81,6 +91,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:maxLines="1"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/poppins_medium"
             android:padding="3dp"
             android:text="@{userDetail.bio}"
             app:layout_constraintTop_toBottomOf="@id/linearUserSimpleDetail"

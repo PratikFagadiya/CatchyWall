@@ -5,7 +5,6 @@ import com.pratik.catchywall.data.model.HomeResponseModelItem
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
-
 interface NetworkApi {
 
     companion object {
@@ -26,5 +25,8 @@ interface NetworkApi {
         @Query("per_page") per_page: Int,
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<HomeResponseModelItem>
+
+
+
 
 }
