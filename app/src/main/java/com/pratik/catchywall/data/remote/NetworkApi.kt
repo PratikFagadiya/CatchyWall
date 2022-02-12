@@ -2,9 +2,11 @@ package com.pratik.catchywall.data.remote
 
 import com.pratik.catchywall.data.model.CollectionResponseModelItem
 import com.pratik.catchywall.data.model.HomeResponseModelItem
-import retrofit2.Call
+import com.pratik.catchywall.data.model.UserProfilePhotosModelItem
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
+
 interface NetworkApi {
 
     companion object {
@@ -26,6 +28,14 @@ interface NetworkApi {
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<HomeResponseModelItem>
 
+
+    @GET("users/{username}/photos")
+    suspend fun getUserProfilePhotos(
+        @Path("username") username: String,
+        @Query("page") page: Int,
+        @Query("per_page") per_page: Int,
+        @Query("client_id") clientId: String = CLIENT_ID
+    ): List<UserProfilePhotosModelItem>
 
 
 

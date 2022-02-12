@@ -6,15 +6,18 @@ import com.pratik.catchywall.presentation.fragments.UserProfileCollectionsFragme
 import com.pratik.catchywall.presentation.fragments.UserProfileLikesFragment
 import com.pratik.catchywall.presentation.fragments.UserProfilePhotosFragment
 
-class UserFragmentStateAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+class UserFragmentStateAdapter(fragment: Fragment, private val username: String?) :
+
+    FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {
         return 3
     }
 
     override fun createFragment(position: Int): Fragment {
+
         return when (position) {
-            0 -> UserProfilePhotosFragment()
+            0 -> UserProfilePhotosFragment().newInstance(username)
             1 -> UserProfileLikesFragment()
             2 -> UserProfileCollectionsFragment()
             else -> UserProfilePhotosFragment()

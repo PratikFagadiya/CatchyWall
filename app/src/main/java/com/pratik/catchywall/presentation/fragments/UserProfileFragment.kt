@@ -35,7 +35,8 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
 
         fragmentUserProfileBinding.userDetail = userProfileModel
 
-        fragmentUserProfileBinding.viewPager.adapter = UserFragmentStateAdapter(this)
+        fragmentUserProfileBinding.viewPager.adapter =
+            UserFragmentStateAdapter(this, fragmentUserProfileBinding.userDetail?.username)
 
         TabLayoutMediator(
             fragmentUserProfileBinding.tabLayout, fragmentUserProfileBinding.viewPager
