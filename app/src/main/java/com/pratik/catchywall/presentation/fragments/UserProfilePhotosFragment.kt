@@ -59,7 +59,6 @@ class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos
                     viewLifecycleOwner.lifecycle,
                     userProfilePhotosList
                 )
-
             })
     }
 }

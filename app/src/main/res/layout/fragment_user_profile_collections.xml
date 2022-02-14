@@ -5,12 +5,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="User Profile Collection"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:id="@+id/rvUserProfileCollections"
+            android:layout_height="match_parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

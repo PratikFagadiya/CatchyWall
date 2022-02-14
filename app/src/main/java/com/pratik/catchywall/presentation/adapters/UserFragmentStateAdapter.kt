@@ -18,9 +18,9 @@ class UserFragmentStateAdapter(fragment: Fragment, private val username: String?
 
         return when (position) {
             0 -> UserProfilePhotosFragment().newInstance(username)
-            1 -> UserProfileLikesFragment()
-            2 -> UserProfileCollectionsFragment()
-            else -> UserProfilePhotosFragment()
+            1 -> UserProfileLikesFragment().newInstance(username)
+            2 -> UserProfileCollectionsFragment().newInstance(username)
+            else -> UserProfilePhotosFragment().newInstance(username)
         }
     }
 
