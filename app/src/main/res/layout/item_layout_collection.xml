@@ -23,29 +23,53 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
 
-        <ImageView
-            android:id="@+id/imgColverPic"
-            loadImageWith20dp="@{collectionResponseModelItem.cover_photo.urls.regular}"
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgColverPic"-->
+        <!--            loadImageWith20dp="@{collectionResponseModelItem.cover_photo.urls.regular}"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+
+        <!--            tools:ignore="ContentDescription" />-->
+
+        <!--New-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImageColverPic"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            app:layout_constraintDimensionRatio="4:3"
+            android:elevation="10dp"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintDimensionRatio="4:2.8"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgColverPic"
+                loadImageWithPlaceholderColor="@{collectionResponseModelItem.cover_photo.urls.regular}"
+                placeholderColor="@{collectionResponseModelItem.cover_photo.color}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.8"
+                tools:ignore="ContentDescription" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!--New-->
 
         <ImageView
             android:id="@+id/imgProfilePic"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:layout_marginStart="7dp"
             android:layout_marginTop="10dp"
             android:onClick="@{() -> userClick.collectionItemUserClick(collectionResponseModelItem.user)}"
-            app:layout_constraintLeft_toLeftOf="@id/imgColverPic"
-            app:layout_constraintTop_toBottomOf="@id/imgColverPic"
-            app:roundedLoadImage="@{collectionResponseModelItem.user.profile_image.large}"
+            app:layout_constraintLeft_toLeftOf="@id/cardImageColverPic"
+            app:layout_constraintTop_toBottomOf="@id/cardImageColverPic"
+            app:roundImage="@{collectionResponseModelItem.user.profile_image.large}"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -57,7 +81,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintLeft_toRightOf="@id/imgProfilePic"
-            app:layout_constraintRight_toRightOf="@id/imgColverPic"
+            app:layout_constraintRight_toRightOf="@id/cardImageColverPic"
             app:layout_constraintTop_toTopOf="@id/imgProfilePic" />
 
         <TextView
@@ -71,7 +95,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/imgProfilePic"
             app:layout_constraintLeft_toRightOf="@id/imgProfilePic"
-            app:layout_constraintRight_toRightOf="@id/imgColverPic"
+            app:layout_constraintRight_toRightOf="@id/cardImageColverPic"
             app:layout_constraintTop_toBottomOf="@id/txtUserName" />
 
         <View

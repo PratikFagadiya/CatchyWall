@@ -9,6 +9,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentUserProfileBinding
 import com.pratik.catchywall.presentation.adapters.UserFragmentStateAdapter
+import android.content.Intent
+import android.net.Uri
+
 
 class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
 
@@ -27,6 +30,7 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
         savedInstanceState: Bundle?
     ): View {
         fragmentUserProfileBinding = FragmentUserProfileBinding.inflate(inflater, container, false)
+        fragmentUserProfileBinding.fragment = this
         return fragmentUserProfileBinding.root
     }
 
@@ -49,4 +53,10 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
         }.attach()
 
     }
+
+    fun onWebProfileClick(profileUrl: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(profileUrl))
+        startActivity(browserIntent)
+    }
+
 }

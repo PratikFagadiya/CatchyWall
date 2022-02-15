@@ -3,4 +3,6 @@
 
     <color name="text_dark_color">#FFF</color>
     <color name="text_light_color">#CCFFFFFF</color>
+
+    <color name="web_url_color">#2C85C3</color>
 </resources>

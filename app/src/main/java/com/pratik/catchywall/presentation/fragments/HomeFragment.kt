@@ -41,7 +41,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         fragmentHomeBinding.rvHomePics.apply {
             layoutManager = LinearLayoutManager(requireContext())
-//            layoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
             homeListAdapter = HomeListAdapter()
             adapter = homeListAdapter
         }

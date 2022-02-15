@@ -2,6 +2,7 @@ package com.pratik.catchywall.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,8 @@ class HomeListAdapter :
 
     class HomePicsViewHolder(itemView: ItemLayoutHomeBinding) :
         RecyclerView.ViewHolder(itemView.root) {
+
+
 
         private val itemLayoutHomeBinding: ItemLayoutHomeBinding = itemView
 

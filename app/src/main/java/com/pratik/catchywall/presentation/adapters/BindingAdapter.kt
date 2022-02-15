@@ -4,8 +4,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.ImageView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -66,6 +64,26 @@ fun loadImageWith20dpAndPlaceholderColor(
                 )
             )
             .transform(CenterCrop(), RoundedCorners(20))
+            .into(imageView)
+    }
+
+}
+
+
+@BindingAdapter("loadImageWithPlaceholderColor", "placeholderColor")
+fun loadImageWithPlaceholderColor(
+    imageView: ImageView,
+    imageUrl: String = "",
+    placeholderColor: String
+) {
+    imageView.let {
+        Glide.with(imageView.context).load(imageUrl)
+            .placeholder(
+                ColorDrawable(
+                    Color.parseColor(placeholderColor)
+                )
+            )
+            .transform(CenterCrop())
             .into(imageView)
     }
 

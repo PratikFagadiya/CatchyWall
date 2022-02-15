@@ -4,11 +4,16 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="userDetail"
             type="com.pratik.catchywall.data.model.UserXX" />
 
-        <import type="android.view.View" />
+        <variable
+            name="fragment"
+            type="com.pratik.catchywall.presentation.fragments.UserProfileFragment" />
+
 
     </data>
 
@@ -76,9 +81,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:maxLines="1"
-                
+                android:onClick="@{() -> fragment.onWebProfileClick(userDetail.portfolio_url)}"
                 android:text="@{userDetail.portfolio_url}"
-                android:textColor="@color/text_light_color"
+                android:textColor="@color/web_url_color"
                 tools:text="https://stackoverflow.com/users/12833551/pratik-fagadiya" />
 
 
@@ -89,10 +94,10 @@
             isTextVisible="@{userDetail.bio}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:maxLines="1"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/poppins_medium"
+            android:maxLines="1"
             android:padding="3dp"
             android:text="@{userDetail.bio}"
             app:layout_constraintTop_toBottomOf="@id/linearUserSimpleDetail"
