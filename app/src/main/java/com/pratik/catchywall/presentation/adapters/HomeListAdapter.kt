@@ -15,16 +15,12 @@ class HomeListAdapter :
     class HomePicsViewHolder(itemView: ItemLayoutHomeBinding) :
         RecyclerView.ViewHolder(itemView.root) {
 
-
-
         private val itemLayoutHomeBinding: ItemLayoutHomeBinding = itemView
 
         fun bindView(homeResponseModelItem: HomeResponseModelItem?) {
             itemLayoutHomeBinding.homeResponseModelItem = homeResponseModelItem
         }
-
     }
-
 
     override fun onBindViewHolder(holder: HomePicsViewHolder, position: Int) {
         holder.bindView(getItem(position))

@@ -52,6 +52,6 @@ class MainHostFragment : Fragment(R.layout.fragment_main_host) {
             Navigation.findNavController(it)
                 .navigate(R.id.action_mainHostFragment_to_mainMenuBottomSheetDialog)
         }
-
     }
+
 }

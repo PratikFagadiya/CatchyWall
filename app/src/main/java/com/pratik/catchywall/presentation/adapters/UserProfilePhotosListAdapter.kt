@@ -60,7 +60,6 @@ class UserProfilePhotosListAdapter :
             return oldItem == newItem
                     && oldItem == newItem
         }
-
     }
 
 }

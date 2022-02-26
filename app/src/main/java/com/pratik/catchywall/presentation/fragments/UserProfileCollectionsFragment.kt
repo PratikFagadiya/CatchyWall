@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentUserProfileCollectionsBinding
 import com.pratik.catchywall.presentation.adapters.UserProfileCollectionListAdapter
 import com.pratik.catchywall.presentation.viewmodels.UserProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class UserProfileCollectionsFragment : Fragment(R.layout.fragment_user_profile_collections) {
@@ -55,14 +58,14 @@ class UserProfileCollectionsFragment : Fragment(R.layout.fragment_user_profile_c
             adapter = userProfileCollectionListAdapter
         }
 
-        // TODO: 14-02-2022 Complete this
-        userprofileViewModel.getUserProfileCollectionsList(userName!!)
-            .observe(viewLifecycleOwner, { userProfileCollectionList ->
+        viewLifecycleOwner.lifecycleScope.launch {
+            userprofileViewModel.getUserProfileCollectionsList(userName!!).collectLatest { userProfileCollectionList->
                 userProfileCollectionListAdapter.submitData(
-                    viewLifecycleOwner.lifecycle,
                     userProfileCollectionList
                 )
-            })
+            }
+        }
+
     }
 
 }

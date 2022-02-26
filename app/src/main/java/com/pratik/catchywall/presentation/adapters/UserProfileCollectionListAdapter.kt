@@ -25,7 +25,6 @@ class UserProfileCollectionListAdapter :
             itemLayoutUserCollectionBinding.userProfileCollectionModel =
                 userProfileCollectionsModelItem
         }
-
     }
 
     override fun onBindViewHolder(
@@ -60,7 +59,6 @@ class UserProfileCollectionListAdapter :
         ): Boolean {
             return oldItem == newItem && oldItem == newItem
         }
-
     }
 
 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
@@ -15,6 +16,8 @@ import com.pratik.catchywall.presentation.adapters.CollectionListAdapter
 import com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener
 import com.pratik.catchywall.presentation.viewmodels.CollectionViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionItemUserClickListener {
@@ -36,21 +39,21 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         fragmentCollectionBinding.rvCollectionList.apply {
             layoutManager = LinearLayoutManager(requireContext())
             collectionListAdapter = CollectionListAdapter(this@CollectionFragment)
             adapter = collectionListAdapter
         }
 
-        collectionViewModel.collectionList.observe(viewLifecycleOwner, { collectionList ->
-            collectionListAdapter.submitData(viewLifecycleOwner.lifecycle, collectionList)
-        })
+        viewLifecycleOwner.lifecycleScope.launch {
+            collectionViewModel.collectionList.collectLatest { collectionList ->
+                collectionListAdapter.submitData(collectionList)
+            }
+        }
 
     }
 
     override fun collectionItemUserClick(userModel: UserXX) {
-
         findNavController().navigate(
             MainHostFragmentDirections.actionMainHostFragmentToUserProfileFragment2(userModel)
         )

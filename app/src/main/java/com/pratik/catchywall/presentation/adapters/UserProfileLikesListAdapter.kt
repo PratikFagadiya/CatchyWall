@@ -60,7 +60,6 @@ class UserProfileLikesListAdapter :
             return oldItem == newItem
                     && oldItem == newItem
         }
-
     }
 
 }

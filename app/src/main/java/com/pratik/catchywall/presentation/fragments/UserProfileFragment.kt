@@ -12,7 +12,6 @@ import com.pratik.catchywall.presentation.adapters.UserFragmentStateAdapter
 import android.content.Intent
 import android.net.Uri
 
-
 class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
 
     lateinit var fragmentUserProfileBinding: FragmentUserProfileBinding

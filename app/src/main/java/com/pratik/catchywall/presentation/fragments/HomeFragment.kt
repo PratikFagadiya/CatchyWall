@@ -1,26 +1,25 @@
 package com.pratik.catchywall.presentation.fragments
 
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentHomeBinding
 import com.pratik.catchywall.presentation.adapters.HomeListAdapter
 import com.pratik.catchywall.presentation.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    lateinit var fragmentHomeBinding: FragmentHomeBinding
+    private lateinit var fragmentHomeBinding: FragmentHomeBinding
 
     private val homeViewModel by viewModels<HomeViewModel>()
 
@@ -45,9 +44,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             adapter = homeListAdapter
         }
 
-        homeViewModel.homePicList.observe(viewLifecycleOwner, { homePicList ->
-            homeListAdapter.submitData(viewLifecycleOwner.lifecycle, homePicList)
-        })
+        viewLifecycleOwner.lifecycleScope.launch {
+            homeViewModel.homePicList.collectLatest { homePicList ->
+                homeListAdapter.submitData(homePicList)
+            }
+        }
+
     }
 
 }

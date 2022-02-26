@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentUserProfilePhotosBinding
 import com.pratik.catchywall.presentation.adapters.UserProfilePhotosListAdapter
 import com.pratik.catchywall.presentation.viewmodels.UserProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos) {
@@ -52,13 +55,11 @@ class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos
             adapter = userProfilePhotosListAdapter
         }
 
-
-        userProfileViewModel.getUserProfilePhotosList(userName!!)
-            .observe(viewLifecycleOwner, { userProfilePhotosList ->
-                userProfilePhotosListAdapter.submitData(
-                    viewLifecycleOwner.lifecycle,
-                    userProfilePhotosList
-                )
-            })
+        viewLifecycleOwner.lifecycleScope.launch {
+            userProfileViewModel.getUserProfilePhotosList(userName!!)
+                .collectLatest { userProfilePhotosList ->
+                    userProfilePhotosListAdapter.submitData(userProfilePhotosList)
+                }
+        }
     }
 }

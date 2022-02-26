@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentUserProfileLikesBinding
 import com.pratik.catchywall.presentation.adapters.UserProfileLikesListAdapter
 import com.pratik.catchywall.presentation.viewmodels.UserProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class UserProfileLikesFragment : Fragment(R.layout.fragment_user_profile_likes) {
@@ -52,13 +55,13 @@ class UserProfileLikesFragment : Fragment(R.layout.fragment_user_profile_likes) 
             adapter = userProfileLikesListAdapter
         }
 
-        userProfileViewModel.getUserProfileLikesList(userName!!).observe(viewLifecycleOwner,
-            { userProfileLikesList ->
+        viewLifecycleOwner.lifecycleScope.launch {
+            userProfileViewModel.getUserProfileLikesList(userName!!).collectLatest {userProfileLikesList ->
                 userProfileLikesListAdapter.submitData(
-                    viewLifecycleOwner.lifecycle,
                     userProfileLikesList
                 )
-            })
-
+            }
+        }
     }
+
 }

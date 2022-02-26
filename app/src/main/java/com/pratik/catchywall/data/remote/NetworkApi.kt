@@ -5,7 +5,8 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface NetworkApi {
+interface
+NetworkApi {
 
     companion object {
         const val BASE_URL = "https://api.unsplash.com/"
@@ -25,7 +26,6 @@ interface NetworkApi {
         @Query("per_page") per_page: Int,
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<HomeResponseModelItem>
-
 
     @GET("users/{username}/photos")
     suspend fun getUserProfilePhotos(
@@ -50,6 +50,4 @@ interface NetworkApi {
         @Query("per_page") per_page: Int,
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<UserProfileCollectionsModelItem>
-
-
 }

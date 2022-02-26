@@ -15,7 +15,6 @@ class UserFragmentStateAdapter(fragment: Fragment, private val username: String?
     }
 
     override fun createFragment(position: Int): Fragment {
-
         return when (position) {
             0 -> UserProfilePhotosFragment().newInstance(username)
             1 -> UserProfileLikesFragment().newInstance(username)
