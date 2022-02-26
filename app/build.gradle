@@ -63,8 +63,8 @@ dependencies {
 
 //     Room
     implementation "androidx.room:room-runtime:$room_version"
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha03'
-    androidTestImplementation 'androidx.test:rules:1.4.1-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha04'
+    androidTestImplementation 'androidx.test:rules:1.4.1-alpha04'
     kapt "androidx.room:room-compiler:$room_version"
 
 //     Room With Paging

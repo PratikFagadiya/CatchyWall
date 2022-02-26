@@ -15,6 +15,7 @@ class CollectionPagingSource(
 ) : PagingSource<Int, CollectionResponseModelItem>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CollectionResponseModelItem> {
+
         val position = params.key ?: STARTING_PAGE_INDEX
 
         return try {
