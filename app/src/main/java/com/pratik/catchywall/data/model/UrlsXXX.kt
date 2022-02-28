@@ -5,5 +5,6 @@ data class UrlsXXX(
     val raw: String,
     val regular: String,
     val small: String,
-    val thumb: String
+    val thumb: String,
+    val small_s3: String? = "",
 )

@@ -8,8 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pratik.catchywall.data.model.CollectionResponseModelItem
 import com.pratik.catchywall.databinding.ItemLayoutCollectionBinding
 import com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener
+import com.pratik.catchywall.presentation.callbacks.CollectionWallpaperListClickListener
 
-class CollectionListAdapter(var collectionItemUserClickListener: CollectionItemUserClickListener) :
+class CollectionListAdapter(
+    private var collectionItemUserClickListener: CollectionItemUserClickListener,
+    private var collectionWallpaperListClickListener: CollectionWallpaperListClickListener
+) :
 
     PagingDataAdapter<CollectionResponseModelItem, CollectionListAdapter.ViewHolder>(
         DiffUtilCallback()
@@ -21,15 +25,22 @@ class CollectionListAdapter(var collectionItemUserClickListener: CollectionItemU
 
         fun bind(
             collectionResponseModel: CollectionResponseModelItem?,
-            collectionItemUserClickListener: CollectionItemUserClickListener
+            collectionItemUserClickListener: CollectionItemUserClickListener,
+            collectionWallpaperListClickListener: CollectionWallpaperListClickListener
         ) {
             itemLayoutCollectionBinding.collectionResponseModelItem = collectionResponseModel
             itemLayoutCollectionBinding.userClick = collectionItemUserClickListener
+            itemLayoutCollectionBinding.collectionWallpaperListClick =
+                collectionWallpaperListClickListener
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), collectionItemUserClickListener)
+        holder.bind(
+            getItem(position),
+            collectionItemUserClickListener,
+            collectionWallpaperListClickListener
+        )
     }
 
     override fun onCreateViewHolder(

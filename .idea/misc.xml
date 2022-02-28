@@ -8,6 +8,7 @@
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/dialog_bottomsheet_main_menu.xml" value="0.28125" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_collection.xml" value="0.28125" />
+        <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_collection_wallpaper_list.xml" value="0.28125" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_home.xml" value="0.28125" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_liked.xml" value="0.2640625" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_main_host.xml" value="0.25" />
@@ -16,7 +17,9 @@
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_user_profile_collections.xml" value="0.28125" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_user_profile_likes.xml" value="0.28125" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_user_profile_photos.xml" value="0.28125" />
+        <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/fragment_wallpaper_preview.xml" value="0.22" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/item_layout_collection.xml" value="0.2" />
+        <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/item_layout_collection_wallpaper.xml" value="0.28125" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/item_layout_home.xml" value="0.25" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/item_layout_user_collection.xml" value="0.25" />
         <entry key="..\:/Pratik/Demo/CatchyWall/app/src/main/res/layout/item_layout_user_profile_likes.xml" value="0.28125" />

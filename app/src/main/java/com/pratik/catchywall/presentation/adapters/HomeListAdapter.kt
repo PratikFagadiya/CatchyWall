@@ -2,14 +2,14 @@ package com.pratik.catchywall.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pratik.catchywall.data.model.HomeResponseModelItem
 import com.pratik.catchywall.databinding.ItemLayoutHomeBinding
+import com.pratik.catchywall.presentation.callbacks.HomeWallpaperClickListener
 
-class HomeListAdapter :
+class HomeListAdapter(private val homeWallpaperClickListener: HomeWallpaperClickListener) :
     PagingDataAdapter<HomeResponseModelItem, HomeListAdapter.HomePicsViewHolder>(DiffUtilCallback()) {
 
     class HomePicsViewHolder(itemView: ItemLayoutHomeBinding) :
@@ -17,13 +17,17 @@ class HomeListAdapter :
 
         private val itemLayoutHomeBinding: ItemLayoutHomeBinding = itemView
 
-        fun bindView(homeResponseModelItem: HomeResponseModelItem?) {
+        fun bindView(
+            homeResponseModelItem: HomeResponseModelItem?,
+            homeWallpaperClickListener: HomeWallpaperClickListener
+        ) {
             itemLayoutHomeBinding.homeResponseModelItem = homeResponseModelItem
+            itemLayoutHomeBinding.homeWallpaperClickListener = homeWallpaperClickListener
         }
     }
 
     override fun onBindViewHolder(holder: HomePicsViewHolder, position: Int) {
-        holder.bindView(getItem(position))
+        holder.bindView(getItem(position), homeWallpaperClickListener)
     }
 
     override fun onCreateViewHolder(

@@ -50,4 +50,13 @@ NetworkApi {
         @Query("per_page") per_page: Int,
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<UserProfileCollectionsModelItem>
+
+    @GET("collections/{id}/photos")
+    suspend fun getCollectionWallpaperList(
+        @Path("id") id: String,
+        @Query("page") page: Int,
+        @Query("per_page") per_page: Int,
+        @Query("client_id") clientId: String = CLIENT_ID
+    ) : List<CollectionWallpaperListModelItem>
+
 }

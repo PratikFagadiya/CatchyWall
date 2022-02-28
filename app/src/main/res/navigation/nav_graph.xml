@@ -24,6 +24,12 @@
         <action
             android:id="@+id/action_mainHostFragment_to_userProfileFragment2"
             app:destination="@id/userProfileFragment2" />
+        <action
+            android:id="@+id/action_mainHostFragment_to_wallpaperPreviewFragment"
+            app:destination="@id/wallpaperPreviewFragment" />
+        <action
+            android:id="@+id/action_mainHostFragment_to_collectionWallpaperListFragment"
+            app:destination="@id/collectionWallpaperListFragment" />
 
     </fragment>
 
@@ -50,6 +56,18 @@
         android:id="@+id/mainMenuBottomSheetDialog"
         android:name="com.pratik.catchywall.presentation.dialogs.MainMenuBottomSheetDialog"
         android:label="MainMenuBottomSheetDialog" />
+    <fragment
+        android:id="@+id/wallpaperPreviewFragment"
+        android:name="com.pratik.catchywall.presentation.fragments.WallpaperPreviewFragment"
+        android:label="WallpaperPreviewFragment" />
+    <fragment
+        android:id="@+id/collectionWallpaperListFragment"
+        android:name="com.pratik.catchywall.presentation.fragments.CollectionWallpaperListFragment"
+        android:label="CollectionWallpaperListFragment" >
+        <argument
+            android:name="collectionId"
+            app:argType="string" />
+    </fragment>
 
 
 </navigation>

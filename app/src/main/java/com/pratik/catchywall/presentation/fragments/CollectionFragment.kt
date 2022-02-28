@@ -14,18 +14,20 @@ import com.pratik.catchywall.data.model.UserXX
 import com.pratik.catchywall.databinding.FragmentCollectionBinding
 import com.pratik.catchywall.presentation.adapters.CollectionListAdapter
 import com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener
+import com.pratik.catchywall.presentation.callbacks.CollectionWallpaperListClickListener
 import com.pratik.catchywall.presentation.viewmodels.CollectionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionItemUserClickListener {
+class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionItemUserClickListener,
+    CollectionWallpaperListClickListener {
 
-    lateinit var fragmentCollectionBinding: FragmentCollectionBinding
+    private lateinit var fragmentCollectionBinding: FragmentCollectionBinding
     private val collectionViewModel by viewModels<CollectionViewModel>()
 
-    lateinit var collectionListAdapter: CollectionListAdapter
+    private lateinit var collectionListAdapter: CollectionListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +43,8 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
 
         fragmentCollectionBinding.rvCollectionList.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            collectionListAdapter = CollectionListAdapter(this@CollectionFragment)
+            collectionListAdapter =
+                CollectionListAdapter(this@CollectionFragment, this@CollectionFragment)
             adapter = collectionListAdapter
         }
 
@@ -57,6 +60,13 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
         findNavController().navigate(
             MainHostFragmentDirections.actionMainHostFragmentToUserProfileFragment2(userModel)
         )
+    }
 
+    override fun collectionWallpaperListClick(collectionId: String) {
+        findNavController().navigate(
+            MainHostFragmentDirections.actionMainHostFragmentToCollectionWallpaperListFragment(
+                collectionId
+            )
+        )
     }
 }

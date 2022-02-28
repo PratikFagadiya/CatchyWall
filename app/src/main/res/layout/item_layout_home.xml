@@ -7,6 +7,10 @@
             name="homeResponseModelItem"
             type="com.pratik.catchywall.data.model.HomeResponseModelItem" />
 
+        <variable
+            name="homeWallpaperClickListener"
+            type="com.pratik.catchywall.presentation.callbacks.HomeWallpaperClickListener" />
+
         <import type="android.graphics.Color" />
 
     </data>
@@ -26,6 +30,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
+            android:onClick="@{() -> homeWallpaperClickListener.homeWallpaperClick(homeResponseModelItem.user.name)}"
             app:layout_constraintDimensionRatio="4:3"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

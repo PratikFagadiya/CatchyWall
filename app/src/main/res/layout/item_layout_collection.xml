@@ -15,6 +15,10 @@
             name="collectionViewModel"
             type="com.pratik.catchywall.presentation.viewmodels.CollectionViewModel" />
 
+        <variable
+            name="collectionWallpaperListClick"
+            type="com.pratik.catchywall.presentation.callbacks.CollectionWallpaperListClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,6 +40,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardImageColverPic"
             android:layout_width="match_parent"
+            android:onClick="@{() -> collectionWallpaperListClick.collectionWallpaperListClick(collectionResponseModelItem.id)}"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:elevation="10dp"
