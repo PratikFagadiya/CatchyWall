@@ -40,10 +40,10 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardImageColverPic"
             android:layout_width="match_parent"
-            android:onClick="@{() -> collectionWallpaperListClick.collectionWallpaperListClick(collectionResponseModelItem.id)}"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:elevation="10dp"
+            android:onClick="@{() -> collectionWallpaperListClick.collectionWallpaperListClick(collectionResponseModelItem.id)}"
             app:cardBackgroundColor="@color/black"
             app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
