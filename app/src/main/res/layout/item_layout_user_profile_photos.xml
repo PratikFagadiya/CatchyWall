@@ -15,20 +15,31 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
 
-        <ImageView
-            android:id="@+id/imgColverPic"
-            loadImageWith20dpAndPlaceholderColor="@{userProfilePhotos.urls.regular}"
-            placeholderColor="@{userProfilePhotos.color}"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImageColverPic"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:elevation="10dp"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true"
             app:layout_constraintDimensionRatio="4:2.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgColverPic"
+                loadImageWith20dpAndPlaceholderColor="@{userProfilePhotos.urls.regular}"
+                placeholderColor="@{userProfilePhotos.color}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.8"
+                tools:ignore="ContentDescription" />
+
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
