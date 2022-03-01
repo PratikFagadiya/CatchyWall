@@ -1,5 +1,7 @@
 package com.pratik.catchywall.data.model
 
+import java.io.Serializable
+
 data class UserXXX(
     val accepted_tos: Boolean,
     val bio: String,
@@ -17,7 +19,7 @@ data class UserXXX(
     val total_collections: Int,
     val total_likes: Int,
     val total_photos: Int,
-    val twitter_username: Any,
+    val twitter_username: String,
     val updated_at: String,
     val username: String
-)
+): Serializable

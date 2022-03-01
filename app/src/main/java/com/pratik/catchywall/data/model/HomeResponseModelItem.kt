@@ -3,7 +3,6 @@ package com.pratik.catchywall.data.model
 data class HomeResponseModelItem(
     val alt_description: String,
     val blur_hash: String,
-    val categories: List<Any>,
     val color: String,
     val created_at: String,
     val current_user_collections: List<Any>,
