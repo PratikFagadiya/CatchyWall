@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
+import com.pratik.catchywall.data.model.UrlsXXX
+import com.pratik.catchywall.data.model.UserXXX
 import com.pratik.catchywall.databinding.FragmentHomeBinding
 import com.pratik.catchywall.presentation.adapters.HomeListAdapter
 import com.pratik.catchywall.presentation.callbacks.HomeWallpaperClickListener
@@ -55,10 +57,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeWallpaperClickListene
 
     }
 
-    override fun homeWallpaperClick(name: String) {
-        Toast.makeText(context,name,Toast.LENGTH_SHORT).show()
+    override fun homeWallpaperClick(
+        urls: UrlsXXX,
+        user: UserXXX,
+        id: String,
+        name: String
+    ) {
         findNavController().navigate(
-            MainHostFragmentDirections.actionMainHostFragmentToWallpaperPreviewFragment()
+            MainHostFragmentDirections.actionMainHostFragmentToWallpaperPreviewFragment(
+                urls,
+                user,
+                id,
+                name
+            )
         )
     }
 

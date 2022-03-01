@@ -59,7 +59,20 @@
     <fragment
         android:id="@+id/wallpaperPreviewFragment"
         android:name="com.pratik.catchywall.presentation.fragments.WallpaperPreviewFragment"
-        android:label="WallpaperPreviewFragment" />
+        android:label="WallpaperPreviewFragment" >
+        <argument
+            android:name="urlsModel"
+            app:argType="com.pratik.catchywall.data.model.UrlsXXX" />
+        <argument
+            android:name="userModel"
+            app:argType="com.pratik.catchywall.data.model.UserXXX" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/collectionWallpaperListFragment"
         android:name="com.pratik.catchywall.presentation.fragments.CollectionWallpaperListFragment"
