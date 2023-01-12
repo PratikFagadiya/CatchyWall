@@ -23,7 +23,7 @@ class CollectionWallpaperListFragment : Fragment(R.layout.fragment_collection_wa
     private lateinit var fragmentCollectionWallpaperListBinding: FragmentCollectionWallpaperListBinding
 
     private val collectionViewModel by viewModels<CollectionViewModel>()
-    lateinit var collectionWallpaperListAdapter: CollectionWallpaperListAdapter
+    private lateinit var collectionWallpaperListAdapter: CollectionWallpaperListAdapter
 
     private val collectionId by lazy {
         arguments?.let {

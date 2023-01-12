@@ -10,7 +10,7 @@ interface
 NetworkApi {
 
     companion object {
-        const val BASE_URL = "https://api.unsplash.com/"
+        const val BASE_URL = Sensitive.BASE_URL
         const val CLIENT_ID = Sensitive.CLIENT_ID
     }
 

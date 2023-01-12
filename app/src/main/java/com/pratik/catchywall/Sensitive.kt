@@ -1,5 +1,6 @@
 package com.pratik.catchywall
 
 object Sensitive {
-    const val CLIENT_ID = "Us7xh31OYm-8Ow-rRdFQsqKNApT9aQ85tDHKsDVXa34"
+    const val CLIENT_ID =  BuildConfig.CLIENT_ID
+    const val BASE_URL =  BuildConfig.BASE_URL
 }
