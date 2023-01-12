@@ -20,6 +20,7 @@ Catchy Wall is simple wallpaper application which using unsplash API for beautif
       UI-related data that isn"t destroyed on UI changes.
     - [Room](https://developer.android.com/topic/libraries/architecture/room) - SQLite object
       mapping library.
+    - [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - The Paging library helps you load and display pages of data from a larger dataset from local storage or over network.
     - [DataBinding](https://developer.android.com/topic/libraries/data-binding) - Help you to bind
       UI components in your layouts to data sources in your app using a declarative format.
     - [Navigation](https://developer.android.com/guide/navigation) - It is the API and the design tool in Android Studio that makes it much easier to create and edit navigation flows throughout your application.
