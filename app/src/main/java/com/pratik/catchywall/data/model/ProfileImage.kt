@@ -1,7 +1,7 @@
 package com.pratik.catchywall.data.model
 
 data class ProfileImage(
-    val large: String,
-    val medium: String,
-    val small: String
-)
+    val large: String? = "",
+    val medium: String? = "",
+    val small: String? = ""
+) : java.io.Serializable

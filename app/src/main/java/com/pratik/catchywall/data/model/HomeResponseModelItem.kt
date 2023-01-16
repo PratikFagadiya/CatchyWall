@@ -11,11 +11,11 @@ data class HomeResponseModelItem(
     val id: String,
     val liked_by_user: Boolean,
     val likes: Int,
-    val links: LinksXXXXXX,
+    val links: Links,
     val promoted_at: String,
     val sponsorship: Sponsorship,
     val updated_at: String,
-    val urls: UrlsXXX,
-    val user: UserXXX,
+    val urls: Urls,
+    val user: User,
     val width: Int
 )

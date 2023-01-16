@@ -8,12 +8,11 @@
 
         <variable
             name="userDetail"
-            type="com.pratik.catchywall.data.model.UserXX" />
+            type="com.pratik.catchywall.data.model.User" />
 
         <variable
             name="fragment"
             type="com.pratik.catchywall.presentation.fragments.UserProfileFragment" />
-
 
     </data>
 

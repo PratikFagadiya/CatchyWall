@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
-import com.pratik.catchywall.data.model.UserXX
+import com.pratik.catchywall.data.model.User
 import com.pratik.catchywall.databinding.FragmentCollectionBinding
 import com.pratik.catchywall.presentation.adapters.CollectionListAdapter
 import com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener
@@ -56,7 +56,7 @@ class CollectionFragment : Fragment(R.layout.fragment_collection), CollectionIte
 
     }
 
-    override fun collectionItemUserClick(userModel: UserXX) {
+    override fun collectionItemUserClick(userModel: User) {
         findNavController().navigate(
             MainHostFragmentDirections.actionMainHostFragmentToUserProfileFragment2(userModel)
         )

@@ -5,7 +5,7 @@ data class CollectionWallpaperListModelItem(
     val width: Int = 0,
     val height: Int = 0,
     val color: String,
-    val urls: UrlsXXX,
+    val urls: Urls,
     val likes: Int,
-    val user: UserXXX
+    val user: User
 )

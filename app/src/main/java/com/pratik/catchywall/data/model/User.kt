@@ -2,7 +2,7 @@ package com.pratik.catchywall.data.model
 
 import java.io.Serializable
 
-data class UserXX(
+data class User(
     val accepted_tos: Boolean,
     val bio: String? = "",
     val first_name: String? = "",
@@ -10,12 +10,12 @@ data class UserXX(
     val id: String? = "",
     val instagram_username: String? = "",
     val last_name: String? = "",
-    val links: LinksXXXXX,
+//    val links: LinksXXXX,
     val location: String? = "",
     val name: String? = "",
     val portfolio_url: String? = "",
-    val profile_image: ProfileImageXX,
-    val social: SocialXX,
+    val profile_image: ProfileImage,
+//    val social: SocialX,
     val total_collections: Int,
     val total_likes: Int,
     val total_photos: Int,

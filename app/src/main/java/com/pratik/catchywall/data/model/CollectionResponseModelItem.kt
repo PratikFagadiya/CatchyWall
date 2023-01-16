@@ -9,5 +9,5 @@ data class CollectionResponseModelItem(
     val tags: List<Tag>,
     val title: String,
     val total_photos: Int,
-    val user: UserXX
+    val user: User
 )

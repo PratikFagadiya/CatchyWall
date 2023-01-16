@@ -21,7 +21,6 @@ class UserProfileViewModel @Inject constructor(private val userProfileRepository
         return userProfileRepository.getUserProfilePhotos(userName).cachedIn(viewModelScope)
     }
 
-
     fun getUserProfileLikesList(userName: String): Flow<PagingData<UserProfileLikesModelItem>> {
         return userProfileRepository.getUserProfileLikes(userName).cachedIn(viewModelScope)
     }

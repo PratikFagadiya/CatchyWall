@@ -5,9 +5,9 @@ data class UserProfileLikesModelItem(
     val width: Long = 0L,
     val height: Long = 0L,
     val color: String = "",
-    val urls: UrlsXXX,
-    val links: LinksXXXXXX,
+    val urls: Urls,
+    val links: Links,
     val categories: List<Any>,
     val likes: Int = 0,
-    val user: UserXXX
+    val user: User
 )

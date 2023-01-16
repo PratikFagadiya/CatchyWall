@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="urls"
+            type="com.pratik.catchywall.data.model.Urls" />
+
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,10 +30,10 @@
                 tools:background="@color/black">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    loadImage="@{urls.regular}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_img"
                     app:layout_collapseMode="parallax"
                     tools:ignore="ContentDescription" />
 

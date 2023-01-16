@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentWallpaperPreviewBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
 
     private lateinit var fragmentWallpaperPreviewBinding: FragmentWallpaperPreviewBinding
@@ -31,10 +33,15 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
         }
     }
 
+    private val urls by lazy {
+        arguments?.let {
+            WallpaperPreviewFragmentArgs.fromBundle(it).urlsModel
+        }
+    }
+
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         fragmentWallpaperPreviewBinding =
             FragmentWallpaperPreviewBinding.inflate(inflater, container, false)
@@ -43,6 +50,8 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        fragmentWallpaperPreviewBinding.urls = urls
 
         Toast.makeText(context, userName, Toast.LENGTH_SHORT).show()
 

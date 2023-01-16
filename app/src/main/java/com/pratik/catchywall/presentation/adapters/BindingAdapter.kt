@@ -31,12 +31,10 @@ fun roundedLoadImage(imageView: ImageView, imageUrl: String = "") {
 
 @BindingAdapter("roundImage")
 fun roundImage(imageView: ImageView, imageUrl: String = "") {
-
     imageView.let {
         Glide.with(imageView.context).load(imageUrl).apply(RequestOptions.circleCropTransform())
             .into(imageView)
     }
-
 }
 
 @BindingAdapter("loadImageWith20dp")

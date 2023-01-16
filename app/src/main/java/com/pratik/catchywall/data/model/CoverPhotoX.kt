@@ -12,11 +12,11 @@ data class CoverPhotoX(
     val id: String,
     val liked_by_user: Boolean,
     val likes: Int,
-    val links: LinksXXX,
+    val links: Links,
     val promoted_at: Any,
     val sponsorship: Any,
     val updated_at: String,
-    val urls: UrlsXX,
-    val user: UserX,
+    val urls: Urls,
+    val user: User,
     val width: Int
 )

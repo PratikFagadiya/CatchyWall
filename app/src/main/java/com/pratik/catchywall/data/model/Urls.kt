@@ -6,4 +6,4 @@ data class Urls(
     val regular: String,
     val small: String,
     val thumb: String
-)
+) : java.io.Serializable
