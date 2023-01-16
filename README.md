@@ -24,6 +24,7 @@ Catchy Wall is simple wallpaper application which using unsplash API for beautif
     - [DataBinding](https://developer.android.com/topic/libraries/data-binding) - Help you to bind
       UI components in your layouts to data sources in your app using a declarative format.
     - [Navigation](https://developer.android.com/guide/navigation) - It is the API and the design tool in Android Studio that makes it much easier to create and edit navigation flows throughout your application.
+    - [MotionLayout](https://developer.android.com/develop/ui/views/animations/motionlayout#:~:text=MotionLayout%20is%20a%20layout%20type,compatible%20to%20API%20level%2014.) - MotionLayout is a layout type that helps you manage motion and widget animation in your app.
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
 
 
