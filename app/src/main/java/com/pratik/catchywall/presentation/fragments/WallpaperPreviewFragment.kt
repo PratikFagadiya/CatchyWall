@@ -11,7 +11,7 @@ import com.pratik.catchywall.databinding.FragmentWallpaperPreviewBinding
 
 class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
 
-    lateinit var fragmentWallpaperPreviewBinding: FragmentWallpaperPreviewBinding
+    private lateinit var fragmentWallpaperPreviewBinding: FragmentWallpaperPreviewBinding
 
     private val userName by lazy {
         arguments?.let {
