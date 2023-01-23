@@ -1,10 +1,12 @@
 package com.pratik.catchywall.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
@@ -15,13 +17,15 @@ import com.pratik.catchywall.presentation.viewmodels.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
 
-    lateinit var fragmentSearchBinding: FragmentSearchBinding
+    private lateinit var fragmentSearchBinding: FragmentSearchBinding
 
-    private val searchViewModel by viewModels<SearchViewModel>()
+//    private val searchViewModel by viewModels<SearchViewModel>()
+    private val searchViewModel by activityViewModels<SearchViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -34,6 +38,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        fragmentSearchBinding.searchViewModel = searchViewModel
 
         fragmentSearchBinding.viewPagerSearch.adapter = SearchFragmentStateAdapter(this, "")
 
@@ -53,13 +59,12 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
         }.attach()
 
-        viewLifecycleOwner.lifecycleScope.launch {
-
-            searchViewModel.searchPhotoList("Naruto").collectLatest { photoList ->
-
-            }
-
+        searchViewModel.userSearchQuery.observe(viewLifecycleOwner) {
+            Timber.d("USER QUERY $it")
         }
+
+//        viewLifecycleOwner.lifecycleScope.launch {
+//        }
 
     }
 

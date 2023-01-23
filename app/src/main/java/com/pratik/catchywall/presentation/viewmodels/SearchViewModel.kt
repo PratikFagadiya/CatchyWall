@@ -1,5 +1,6 @@
 package com.pratik.catchywall.presentation.viewmodels
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -13,6 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel
 @Inject constructor(private val searchRepository: SearchRepository) : ViewModel() {
+
+    var userSearchQuery : MutableLiveData<String> = MutableLiveData()
 
     fun searchPhotoList(query: String): Flow<PagingData<HomeResponseModelItem>> =
         searchRepository.getSearchPhotosList(query).cachedIn(viewModelScope)

@@ -2,6 +2,7 @@ package com.pratik.catchywall.presentation.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.pratik.catchywall.presentation.fragments.SearchPhotosFragment
 import com.pratik.catchywall.presentation.fragments.UserProfileCollectionsFragment
 import com.pratik.catchywall.presentation.fragments.UserProfileLikesFragment
 import com.pratik.catchywall.presentation.fragments.UserProfilePhotosFragment
@@ -15,7 +16,7 @@ class SearchFragmentStateAdapter(fragment: Fragment, private val username: Strin
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> UserProfilePhotosFragment().newInstance(username)
+            0 -> SearchPhotosFragment()
             1 -> UserProfileLikesFragment().newInstance(username)
             2 -> UserProfileCollectionsFragment().newInstance(username)
             else -> UserProfilePhotosFragment().newInstance(username)
