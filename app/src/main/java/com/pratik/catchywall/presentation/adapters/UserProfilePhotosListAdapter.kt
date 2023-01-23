@@ -9,7 +9,6 @@ import com.pratik.catchywall.data.model.UserProfilePhotosModelItem
 import com.pratik.catchywall.databinding.ItemLayoutUserProfilePhotosBinding
 
 class UserProfilePhotosListAdapter :
-
     PagingDataAdapter<UserProfilePhotosModelItem, UserProfilePhotosListAdapter.ViewHolder>(
         DiffUtilCallback()
     ) {

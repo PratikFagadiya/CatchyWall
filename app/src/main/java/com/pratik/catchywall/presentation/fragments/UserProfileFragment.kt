@@ -58,4 +58,5 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
         startActivity(browserIntent)
     }
 
+
 }

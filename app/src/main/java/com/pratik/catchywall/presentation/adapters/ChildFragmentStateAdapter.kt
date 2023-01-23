@@ -6,7 +6,6 @@ import com.pratik.catchywall.presentation.fragments.CollectionFragment
 import com.pratik.catchywall.presentation.fragments.HomeFragment
 
 class ChildFragmentStateAdapter(fragment: Fragment) :
-
     FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 2

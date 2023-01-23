@@ -9,6 +9,14 @@
             name="urls"
             type="com.pratik.catchywall.data.model.Urls" />
 
+        <variable
+            name="user"
+            type="com.pratik.catchywall.data.model.User" />
+
+        <variable
+            name="fragment"
+            type="com.pratik.catchywall.presentation.fragments.WallpaperPreviewFragment" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -45,6 +53,65 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgUserProfile"
+                        roundImage="@{user.profile_image.large}"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription"
+                        tools:src="@tools:sample/avatars" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@{user.first_name + ` ` + user.last_name}"
+                        app:layout_constraintBottom_toBottomOf="@id/imgUserProfile"
+                        app:layout_constraintLeft_toRightOf="@id/imgUserProfile"
+                        app:layout_constraintTop_toTopOf="@id/imgUserProfile"
+                        tools:text="Hello World" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgDownload"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:onClick="@{() -> fragment.onDownloadClick()}"
+                        android:src="@drawable/baseline_download_24"
+                        app:layout_constraintBottom_toBottomOf="@id/imgUserProfile"
+                        app:layout_constraintEnd_toStartOf="@id/imgLike"
+                        app:layout_constraintTop_toTopOf="@id/imgUserProfile" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgLike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:onClick="@{() -> fragment.onLikeUnlikeClick()}"
+                        android:src="@drawable/ic_baseline_favorite_border_24"
+                        app:layout_constraintBottom_toBottomOf="@id/imgUserProfile"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/imgUserProfile" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 

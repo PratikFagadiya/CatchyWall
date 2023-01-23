@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentWallpaperPreviewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
@@ -51,10 +51,19 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fragmentWallpaperPreviewBinding.fragment = this
         fragmentWallpaperPreviewBinding.urls = urls
+        fragmentWallpaperPreviewBinding.user = userModel
 
-        Toast.makeText(context, userName, Toast.LENGTH_SHORT).show()
+        Timber.d("User Model $userModel")
+    }
 
+    fun onDownloadClick() {
+        // TODO: download image from here
+    }
+
+    fun onLikeUnlikeClick() {
+        // TODO: Like Unlike Click Listener
     }
 
 }

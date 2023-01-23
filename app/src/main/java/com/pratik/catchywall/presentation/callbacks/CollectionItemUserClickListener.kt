@@ -4,4 +4,5 @@ import com.pratik.catchywall.data.model.User
 
 interface CollectionItemUserClickListener {
     fun collectionItemUserClick(userModel: User)
+
 }

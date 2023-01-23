@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pratik.catchywall.data.model.HomeResponseModelItem
 import com.pratik.catchywall.databinding.ItemLayoutHomeBinding
 import com.pratik.catchywall.presentation.callbacks.HomeWallpaperClickListener
+import timber.log.Timber
 
 class HomeListAdapter(private val homeWallpaperClickListener: HomeWallpaperClickListener) :
     PagingDataAdapter<HomeResponseModelItem, HomeListAdapter.HomePicsViewHolder>(DiffUtilCallback()) {
