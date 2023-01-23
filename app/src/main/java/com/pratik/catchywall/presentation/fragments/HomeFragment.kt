@@ -48,7 +48,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeWallpaperClickListene
             adapter = homeListAdapter
         }
 
-        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.homePicList.collectLatest { homePicList ->
                 homeListAdapter.submitData(homePicList)
             }

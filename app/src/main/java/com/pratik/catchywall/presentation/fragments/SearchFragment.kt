@@ -5,14 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentSearchBinding
 import com.pratik.catchywall.presentation.adapters.SearchFragmentStateAdapter
+import com.pratik.catchywall.presentation.viewmodels.SearchViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
 
     lateinit var fragmentSearchBinding: FragmentSearchBinding
+
+    private val searchViewModel by viewModels<SearchViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -43,6 +52,14 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 }
             }
         }.attach()
+
+        viewLifecycleOwner.lifecycleScope.launch {
+
+            searchViewModel.searchPhotoList("Naruto").collectLatest { photoList ->
+
+            }
+
+        }
 
     }
 
