@@ -86,3 +86,5 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timber_version"
 
 }
+//CLIENT_ID=Us7xh31OYm-8Ow-rRdFQsqKNApT9aQ85tDHKsDVXa34
+//BASE_URL=https://api.unsplash.com/

@@ -6,7 +6,7 @@ import com.pratik.catchywall.presentation.fragments.UserProfileCollectionsFragme
 import com.pratik.catchywall.presentation.fragments.UserProfileLikesFragment
 import com.pratik.catchywall.presentation.fragments.UserProfilePhotosFragment
 
-class UserFragmentStateAdapter(fragment: Fragment, private val username: String?) :
+class SearchFragmentStateAdapter(fragment: Fragment, private val username: String?) :
     FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {

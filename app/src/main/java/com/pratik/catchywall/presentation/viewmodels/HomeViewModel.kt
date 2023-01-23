@@ -14,6 +14,6 @@ import javax.inject.Inject
 class HomeViewModel
 @Inject constructor(homeRepository: HomeRepository) : ViewModel() {
 
-    val homePicList: Flow<PagingData<HomeResponseModelItem>>  = homeRepository.getHomePicsList().cachedIn(viewModelScope)
-
+    val homePicList: Flow<PagingData<HomeResponseModelItem>> =
+        homeRepository.getHomePicsList().cachedIn(viewModelScope)
 }

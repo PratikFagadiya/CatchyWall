@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">CatchyWall</string>
+
+    <!--Extra Strings-->
+
     <string name="collection_wallpaper">Collection Wallpaper</string>
+    <string name="photos">Photos</string>
+    <string name="user">User</string>
+    <string name="users">Users</string>
+    <string name="collection">Collection</string>
+    <string name="collections">Collections</string>
 </resources>

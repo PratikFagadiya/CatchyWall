@@ -5,8 +5,9 @@ import com.pratik.catchywall.data.model.*
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.io.StringReader
 
-interface  NetworkApi {
+interface NetworkApi {
 
     companion object {
         const val BASE_URL = Sensitive.BASE_URL
@@ -58,5 +59,13 @@ interface  NetworkApi {
         @Query("per_page") per_page: Int,
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<CollectionWallpaperListModelItem>
+
+    @GET("search/photos")
+    suspend fun getSearchPhotosList(
+        @Query("page") page: Int,
+        @Query("query") query: String,
+        @Query("client_id") clientId: String = CLIENT_ID
+    ): SearchPhotoResponseModel
+
 
 }
