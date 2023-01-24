@@ -12,22 +12,20 @@ import com.bumptech.glide.request.RequestOptions
 
 @BindingAdapter("loadImage")
 fun loadImage(imageView: ImageView, imageUrl: String) {
-
     imageView.let {
         Glide.with(imageView.context).load(imageUrl).into(imageView)
     }
 
 }
 
-@BindingAdapter("roundedLoadImage")
-fun roundedLoadImage(imageView: ImageView, imageUrl: String = "") {
-
-    imageView.let {
-        Glide.with(imageView.context).load(imageUrl)
-            .transform(CenterCrop(), RoundedCorners(50))
-            .into(imageView)
-    }
-}
+//@BindingAdapter("roundedLoadImage")
+//fun roundedLoadImage(imageView: ImageView, imageUrl: String = "") {
+//    imageView.let {
+//        Glide.with(imageView.context).load(imageUrl)
+//            .transform(CenterCrop(), RoundedCorners(50))
+//            .into(imageView)
+//    }
+//}
 
 @BindingAdapter("roundImage")
 fun roundImage(imageView: ImageView, imageUrl: String = "") {

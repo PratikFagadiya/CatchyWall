@@ -13,21 +13,21 @@ import com.pratik.catchywall.R
 import com.pratik.catchywall.data.model.Urls
 import com.pratik.catchywall.data.model.User
 import com.pratik.catchywall.databinding.FragmentHomeBinding
-import com.pratik.catchywall.presentation.adapters.HomeListAdapter
-import com.pratik.catchywall.presentation.callbacks.HomeWallpaperClickListener
+import com.pratik.catchywall.presentation.adapters.SinglePhotoListAdapter
+import com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener
 import com.pratik.catchywall.presentation.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home), HomeWallpaperClickListener {
+class HomeFragment : Fragment(R.layout.fragment_home), SinglePhotoWallpaperClickListener {
 
     private lateinit var fragmentHomeBinding: FragmentHomeBinding
 
     private val homeViewModel by viewModels<HomeViewModel>()
 
-    lateinit var homeListAdapter: HomeListAdapter
+    lateinit var singlePhotoListAdapter: SinglePhotoListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,13 +44,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeWallpaperClickListene
 
         fragmentHomeBinding.rvHomePics.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            homeListAdapter = HomeListAdapter(this@HomeFragment)
-            adapter = homeListAdapter
+            singlePhotoListAdapter = SinglePhotoListAdapter(this@HomeFragment)
+            adapter = singlePhotoListAdapter
         }
 
             viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.homePicList.collectLatest { homePicList ->
-                homeListAdapter.submitData(homePicList)
+                singlePhotoListAdapter.submitData(homePicList)
             }
         }
 

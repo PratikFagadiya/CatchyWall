@@ -18,7 +18,7 @@ class LikedFragment : Fragment(R.layout.fragment_liked) {
         savedInstanceState: Bundle?
     ): View {
 
-        fragmentLikedBinding = FragmentLikedBinding.inflate(inflater,container,false)
+        fragmentLikedBinding = FragmentLikedBinding.inflate(inflater, container, false)
         return fragmentLikedBinding.root
     }
 

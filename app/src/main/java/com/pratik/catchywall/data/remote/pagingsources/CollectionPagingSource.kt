@@ -1,6 +1,5 @@
 package com.pratik.catchywall.data.remote.pagingsources
 
-
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.pratik.catchywall.data.model.CollectionResponseModelItem

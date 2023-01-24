@@ -68,4 +68,18 @@ interface NetworkApi {
     ): SearchPhotoResponseModel
 
 
+    @GET("search/users")
+    suspend fun getSearchUserList(
+        @Query("page") page: Int,
+        @Query("query") query: String,
+        @Query("client_id") clientId: String = CLIENT_ID
+    ): SearchUserResponseModel
+
+    @GET("search/collections")
+    suspend fun getSearchCollectionList(
+        @Query("page") page: Int,
+        @Query("query") query: String,
+        @Query("client_id") clientId: String = CLIENT_ID
+    ): SearchCollectionResponseModel
+
 }

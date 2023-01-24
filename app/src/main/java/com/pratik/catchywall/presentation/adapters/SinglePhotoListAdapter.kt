@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pratik.catchywall.data.model.HomeResponseModelItem
 import com.pratik.catchywall.databinding.ItemLayoutHomeBinding
-import com.pratik.catchywall.presentation.callbacks.HomeWallpaperClickListener
-import timber.log.Timber
+import com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener
 
-class HomeListAdapter(private val homeWallpaperClickListener: HomeWallpaperClickListener) :
-    PagingDataAdapter<HomeResponseModelItem, HomeListAdapter.HomePicsViewHolder>(DiffUtilCallback()) {
+class SinglePhotoListAdapter(private val singlePhotoWallpaperClickListener: SinglePhotoWallpaperClickListener) :
+    PagingDataAdapter<HomeResponseModelItem, SinglePhotoListAdapter.HomePicsViewHolder>(
+        DiffUtilCallback()
+    ) {
 
     class HomePicsViewHolder(itemView: ItemLayoutHomeBinding) :
         RecyclerView.ViewHolder(itemView.root) {
@@ -20,15 +21,15 @@ class HomeListAdapter(private val homeWallpaperClickListener: HomeWallpaperClick
 
         fun bindView(
             homeResponseModelItem: HomeResponseModelItem?,
-            homeWallpaperClickListener: HomeWallpaperClickListener
+            singlePhotoWallpaperClickListener: SinglePhotoWallpaperClickListener
         ) {
             itemLayoutHomeBinding.homeResponseModelItem = homeResponseModelItem
-            itemLayoutHomeBinding.homeWallpaperClickListener = homeWallpaperClickListener
+            itemLayoutHomeBinding.homeWallpaperClickListener = singlePhotoWallpaperClickListener
         }
     }
 
     override fun onBindViewHolder(holder: HomePicsViewHolder, position: Int) {
-        holder.bindView(getItem(position), homeWallpaperClickListener)
+        holder.bindView(getItem(position), singlePhotoWallpaperClickListener)
     }
 
     override fun onCreateViewHolder(

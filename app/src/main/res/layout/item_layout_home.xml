@@ -9,7 +9,7 @@
 
         <variable
             name="homeWallpaperClickListener"
-            type="com.pratik.catchywall.presentation.callbacks.HomeWallpaperClickListener" />
+            type="com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener" />
 
         <import type="android.graphics.Color" />
 

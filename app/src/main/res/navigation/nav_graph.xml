@@ -82,6 +82,14 @@
             android:name="collectionId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/searchPhotosFragment"
+        android:name="com.pratik.catchywall.presentation.fragments.SearchPhotosFragment"
+        android:label="SearchPhotosFragment" >
+        <action
+            android:id="@+id/action_searchPhotosFragment_to_wallpaperPreviewFragment"
+            app:destination="@id/wallpaperPreviewFragment" />
+    </fragment>
 
 
 </navigation>
