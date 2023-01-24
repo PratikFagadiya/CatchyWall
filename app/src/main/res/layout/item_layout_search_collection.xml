@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="searchCollectionResultResponseModel"
+            type="com.pratik.catchywall.data.model.SearchCollectionResultResponseModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <!--New-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImageColverPic"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintDimensionRatio="4:2.8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgColverPic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.8"
+                tools:ignore="ContentDescription" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!--New-->
+
+        <ImageView
+            android:id="@+id/imgProfilePic"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="@id/cardImageColverPic"
+            app:layout_constraintTop_toBottomOf="@id/cardImageColverPic"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txtUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{searchCollectionResultResponseModel.title}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/imgProfilePic"
+            app:layout_constraintRight_toRightOf="@id/cardImageColverPic"
+            app:layout_constraintTop_toTopOf="@id/imgProfilePic" />
+
+        <TextView
+            android:id="@+id/txtPicCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/imgProfilePic"
+            app:layout_constraintLeft_toRightOf="@id/imgProfilePic"
+            app:layout_constraintRight_toRightOf="@id/cardImageColverPic"
+            app:layout_constraintTop_toBottomOf="@id/txtUserName" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgProfilePic"
+            app:layout_constraintWidth_percent="0.50" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

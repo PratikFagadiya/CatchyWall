@@ -15,7 +15,7 @@ class SearchFragmentStateAdapter(fragment: Fragment, private val username: Strin
         return when (position) {
             0 -> SearchPhotosFragment()
             1 -> SearchUserFragment()
-            2 -> UserProfileCollectionsFragment().newInstance(username)
+            2 -> SearchCollectionFragment()
             else -> SearchPhotosFragment()
         }
     }

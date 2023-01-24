@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentSearchCollectionBinding
+import com.pratik.catchywall.presentation.adapters.SearchCollectionListAdapter
 import com.pratik.catchywall.presentation.viewmodels.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -20,6 +21,7 @@ class SearchCollectionFragment : Fragment(R.layout.fragment_search_collection) {
 
     lateinit var fragmentSearchCollectionBinding: FragmentSearchCollectionBinding
     val searchViewModel by activityViewModels<SearchViewModel>()
+    lateinit var searchCollectionListAdapter: SearchCollectionListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,14 +37,16 @@ class SearchCollectionFragment : Fragment(R.layout.fragment_search_collection) {
         super.onViewCreated(view, savedInstanceState)
 
         fragmentSearchCollectionBinding.rvSearchCollection.apply {
+            searchCollectionListAdapter = SearchCollectionListAdapter()
             layoutManager = LinearLayoutManager(context)
+            adapter = searchCollectionListAdapter
         }
 
         searchViewModel.userSearchQuery.observe(viewLifecycleOwner) {
             it?.let { query ->
                 lifecycleScope.launch {
                     searchViewModel.searchCollectionList(query).collectLatest { collectionList ->
-
+                        searchCollectionListAdapter.submitData(collectionList)
                     }
                 }
             }
