@@ -16,7 +16,7 @@ class SearchCollectionListAdapter :
     class SearchCollectionListViewHolder(itemView: ItemLayoutSearchCollectionBinding) :
         RecyclerView.ViewHolder(itemView.root) {
 
-        private val itemLayoutSearchCollectionBinding = itemView
+        private val itemLayoutSearchCollectionBinding: ItemLayoutSearchCollectionBinding = itemView
 
         fun bindView(item: SearchCollectionResultResponseModel?) {
             itemLayoutSearchCollectionBinding.searchCollectionResultResponseModel = item
@@ -33,13 +33,14 @@ class SearchCollectionListAdapter :
     ): SearchCollectionListViewHolder {
 
         val itemLayoutSearchCollectionBinding = ItemLayoutSearchCollectionBinding.inflate(
-            LayoutInflater.from(parent.context), false
+            LayoutInflater.from(parent.context), parent, false
         )
 
         return SearchCollectionListViewHolder(itemLayoutSearchCollectionBinding)
     }
 
     class DiffUtilCallback : DiffUtil.ItemCallback<SearchCollectionResultResponseModel>() {
+
         override fun areItemsTheSame(
             oldItem: SearchCollectionResultResponseModel,
             newItem: SearchCollectionResultResponseModel

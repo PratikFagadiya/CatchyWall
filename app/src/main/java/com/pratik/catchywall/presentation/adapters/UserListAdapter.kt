@@ -12,7 +12,6 @@ class UserListAdapter : PagingDataAdapter<User, UserListAdapter.UserViewHolder>(
   diffCallback =   DiffUtilCallback()
 ) {
 
-
     class DiffUtilCallback : DiffUtil.ItemCallback<User>() {
         override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
             return oldItem == newItem

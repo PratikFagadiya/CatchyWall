@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.pratik.catchywall.presentation.fragments.*
 
-class SearchFragmentStateAdapter(fragment: Fragment, private val username: String?) :
+class SearchFragmentStateAdapter(fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {

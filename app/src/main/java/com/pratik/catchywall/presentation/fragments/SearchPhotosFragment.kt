@@ -25,9 +25,7 @@ class SearchPhotosFragment : Fragment(R.layout.fragment_search_photos),
     SinglePhotoWallpaperClickListener {
 
     lateinit var fragmentSearchPhotosBinding: FragmentSearchPhotosBinding
-
     private val searchViewModel by activityViewModels<SearchViewModel>()
-
     private lateinit var singlePhotoListAdapter: SinglePhotoListAdapter
 
     override fun onCreateView(

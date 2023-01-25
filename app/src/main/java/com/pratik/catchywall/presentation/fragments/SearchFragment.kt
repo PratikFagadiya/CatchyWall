@@ -1,22 +1,17 @@
 package com.pratik.catchywall.presentation.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentSearchBinding
 import com.pratik.catchywall.presentation.adapters.SearchFragmentStateAdapter
 import com.pratik.catchywall.presentation.viewmodels.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -41,7 +36,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         fragmentSearchBinding.searchViewModel = searchViewModel
 
-        fragmentSearchBinding.viewPagerSearch.adapter = SearchFragmentStateAdapter(this, "")
+        fragmentSearchBinding.viewPagerSearch.adapter = SearchFragmentStateAdapter(this)
 
         TabLayoutMediator(
             fragmentSearchBinding.tabLayoutSearch, fragmentSearchBinding.viewPagerSearch
