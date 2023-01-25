@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.data.model.Urls
@@ -61,22 +62,14 @@ class SearchPhotosFragment : Fragment(R.layout.fragment_search_photos),
     }
 
     override fun homeWallpaperClick(urls: Urls, user: User, id: String, name: String) {
+        findNavController().navigate(
+            SearchFragmentDirections.actionSearchFragmentToWallpaperPreviewFragment(
+                urls,
+                user,
+                id,
+                name
+            )
+        )
 
-        // TODO: Go to Wallpaper Preview Screen
-
-//        findNavController().navigate(
-//            SearchPhotosFragmentDirections.actionSearchPhotosFragmentToWallpaperPreviewFragment(
-//                urls,
-//                user,
-//                id,
-//                name
-//            )
-////            MainHostFragmentDirections.actionMainHostFragmentToWallpaperPreviewFragment(
-////                urls,
-////                user,
-////                id,
-////                name
-////            )
-//        )
     }
 }

@@ -12,14 +12,12 @@ import com.pratik.catchywall.databinding.FragmentSearchBinding
 import com.pratik.catchywall.presentation.adapters.SearchFragmentStateAdapter
 import com.pratik.catchywall.presentation.viewmodels.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private lateinit var fragmentSearchBinding: FragmentSearchBinding
 
-//    private val searchViewModel by viewModels<SearchViewModel>()
     private val searchViewModel by activityViewModels<SearchViewModel>()
 
     override fun onCreateView(
@@ -48,18 +46,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 1 -> {
                     tab.text = resources.getString(R.string.user)
                 }
-                2 -> {
-                    tab.text = resources.getString(R.string.collection)
-                }
+//                2 -> {
+//                    tab.text = resources.getString(R.string.collection)
+//                }
             }
         }.attach()
-
-        searchViewModel.userSearchQuery.observe(viewLifecycleOwner) {
-            Timber.d("USER QUERY $it")
-        }
-
-//        viewLifecycleOwner.lifecycleScope.launch {
-//        }
 
     }
 

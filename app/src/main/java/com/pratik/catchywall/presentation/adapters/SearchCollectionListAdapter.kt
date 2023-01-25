@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pratik.catchywall.data.model.SearchCollectionResultResponseModel
 import com.pratik.catchywall.databinding.ItemLayoutSearchCollectionBinding
+import timber.log.Timber
 
 class SearchCollectionListAdapter :
     PagingDataAdapter<SearchCollectionResultResponseModel, SearchCollectionListAdapter.SearchCollectionListViewHolder>(
@@ -45,6 +46,7 @@ class SearchCollectionListAdapter :
             oldItem: SearchCollectionResultResponseModel,
             newItem: SearchCollectionResultResponseModel
         ): Boolean {
+            Timber.d("DIFFCALL ${oldItem == newItem}")
             return oldItem == newItem
         }
 
@@ -52,6 +54,7 @@ class SearchCollectionListAdapter :
             oldItem: SearchCollectionResultResponseModel,
             newItem: SearchCollectionResultResponseModel
         ): Boolean {
+            Timber.d("DIFFCALL1 ${oldItem == newItem && oldItem == newItem}")
             return oldItem == newItem && oldItem == newItem
         }
 

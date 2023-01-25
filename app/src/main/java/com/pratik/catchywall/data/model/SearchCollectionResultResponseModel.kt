@@ -14,4 +14,4 @@ data class SearchCollectionResultResponseModel(
     val total_photos: Int,
     val updated_at: String,
     val user: UserXXX
-)
+) : java.io.Serializable

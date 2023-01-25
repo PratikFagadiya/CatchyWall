@@ -8,14 +8,14 @@ class SearchFragmentStateAdapter(fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {
-        return 3
+        return 2
     }
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> SearchPhotosFragment()
             1 -> SearchUserFragment()
-            2 -> SearchCollectionFragment()
+//            2 -> SearchCollectionFragment()
             else -> SearchPhotosFragment()
         }
     }
