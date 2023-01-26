@@ -5,7 +5,6 @@ import com.pratik.catchywall.data.model.*
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import java.io.StringReader
 
 interface NetworkApi {
 
@@ -27,6 +26,12 @@ interface NetworkApi {
         @Query("per_page") per_page: Int,
         @Query("client_id") clientId: String = CLIENT_ID
     ): List<HomeResponseModelItem>
+
+    @GET("photos/{id}")
+    suspend fun getPhotoDetail(
+        @Path("id") id: String,
+        @Query("client_id") clientId: String = CLIENT_ID
+    ): PhotoDetailResponse
 
     @GET("users/{username}/photos")
     suspend fun getUserProfilePhotos(

@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentWallpaperPreviewBinding
+import com.pratik.catchywall.presentation.viewmodels.PhotoViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import hilt_aggregated_deps._com_pratik_catchywall_presentation_viewmodels_HomeViewModel_HiltModules_BindsModule
 import timber.log.Timber
 
 @AndroidEntryPoint
 class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
 
     private lateinit var fragmentWallpaperPreviewBinding: FragmentWallpaperPreviewBinding
+    private val photoViewModel by viewModels<PhotoViewModel>()
 
     private val userName by lazy {
         arguments?.let {
@@ -55,7 +59,17 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
         fragmentWallpaperPreviewBinding.urls = urls
         fragmentWallpaperPreviewBinding.user = userModel
 
-        Timber.d("User Model $userModel")
+        photoViewModel.getPhotoDetail(id.toString())
+
+        setUpObserver()
+    }
+
+    private fun setUpObserver() {
+        photoViewModel.run {
+            photoDetail.observe(viewLifecycleOwner) {
+                Timber.d("Photo View $it")
+            }
+        }
     }
 
     fun onDownloadClick() {
