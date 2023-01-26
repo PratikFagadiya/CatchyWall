@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
+import com.pratik.catchywall.data.model.User
 import com.pratik.catchywall.databinding.FragmentSearchUserBinding
 import com.pratik.catchywall.presentation.adapters.UserListAdapter
+import com.pratik.catchywall.presentation.callbacks.CollectionItemUserClickListener
 import com.pratik.catchywall.presentation.viewmodels.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -18,7 +21,8 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
-class SearchUserFragment : Fragment(R.layout.fragment_search_user) {
+class SearchUserFragment : Fragment(R.layout.fragment_search_user),
+    CollectionItemUserClickListener {
 
     lateinit var fragmentSearchUserBinding: FragmentSearchUserBinding
 
@@ -26,12 +30,9 @@ class SearchUserFragment : Fragment(R.layout.fragment_search_user) {
     lateinit var userListAdapter: UserListAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        fragmentSearchUserBinding =
-            FragmentSearchUserBinding.inflate(inflater, container, false)
+        fragmentSearchUserBinding = FragmentSearchUserBinding.inflate(inflater, container, false)
         return fragmentSearchUserBinding.root
     }
 
@@ -39,7 +40,7 @@ class SearchUserFragment : Fragment(R.layout.fragment_search_user) {
         super.onViewCreated(view, savedInstanceState)
 
         fragmentSearchUserBinding.rvSearchUser.apply {
-            userListAdapter = UserListAdapter()
+            userListAdapter = UserListAdapter(this@SearchUserFragment)
             layoutManager = LinearLayoutManager(context)
             adapter = userListAdapter
         }
@@ -56,6 +57,16 @@ class SearchUserFragment : Fragment(R.layout.fragment_search_user) {
         }
 
     }
+
+    override fun collectionItemUserClick(userModel: User) {
+        findNavController().navigate(
+            SearchFragmentDirections.actionSearchFragmentToUserProfileFragment2(
+                userModel
+            )
+        )
+    }
+
+
 
 
 }

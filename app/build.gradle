@@ -67,7 +67,6 @@ dependencies {
 
 //     Room
     implementation "androidx.room:room-runtime:$room_version"
-    implementation 'androidx.core:core-ktx:+'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha04'
 //    androidTestImplementation 'androidx.test:rules:1.4.1-alpha04'
