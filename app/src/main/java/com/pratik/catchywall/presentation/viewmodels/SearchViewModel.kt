@@ -11,7 +11,6 @@ import com.pratik.catchywall.data.model.User
 import com.pratik.catchywall.data.remote.repository.SearchRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import javax.inject.Inject
 
 @HiltViewModel

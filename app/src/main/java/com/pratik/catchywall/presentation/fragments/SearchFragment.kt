@@ -17,8 +17,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private lateinit var fragmentSearchBinding: FragmentSearchBinding
-
     private val searchViewModel by activityViewModels<SearchViewModel>()
+
+    private val searchQuery by lazy {
+        arguments?.let {
+            SearchFragmentArgs.fromBundle(it).sarchquery ?: ""
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,6 +39,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
 
         fragmentSearchBinding.searchViewModel = searchViewModel
+
+        searchQuery?.let {
+            searchViewModel.userSearchQuery.value = it
+        }
 
         fragmentSearchBinding.viewPagerSearch.adapter = SearchFragmentStateAdapter(this)
 

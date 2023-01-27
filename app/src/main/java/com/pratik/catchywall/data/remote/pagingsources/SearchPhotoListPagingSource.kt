@@ -8,7 +8,7 @@ import timber.log.Timber
 
 private const val STARTING_PAGE_INDEX = 1
 
-class SearchPhotoListPagingSource(val networkApi: NetworkApi, val searchQuery: String) :
+class SearchPhotoListPagingSource(val networkApi: NetworkApi, private val searchQuery: String) :
     PagingSource<Int, HomeResponseModelItem>() {
 
     override fun getRefreshKey(state: PagingState<Int, HomeResponseModelItem>): Int? {
@@ -22,7 +22,7 @@ class SearchPhotoListPagingSource(val networkApi: NetworkApi, val searchQuery: S
         val position = params.key ?: STARTING_PAGE_INDEX
 
         return try {
-            val response = networkApi.getSearchPhotosList(page = position, searchQuery).results
+            val response = networkApi.  getSearchPhotosList(page = position, searchQuery).results
 
             Timber.d("Search Photo ${response.size}")
 

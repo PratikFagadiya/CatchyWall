@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="chipTagClickListener"
+            type="com.pratik.catchywall.presentation.callbacks.ChipTagClickListener" />
+
+        <variable
+            name="tag"
+            type="com.pratik.catchywall.data.model.TagX" />
+
+    </data>
+
+    <com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/txtTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="@{(view) -> chipTagClickListener.chipTagClick(tag.title)}"
+        android:text="@{tag.title}" />
+
+</layout>
+

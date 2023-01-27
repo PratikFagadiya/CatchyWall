@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentMainHostBinding
@@ -16,9 +17,7 @@ class MainHostFragment : Fragment(R.layout.fragment_main_host) {
     lateinit var fragmentMainHostBinding: FragmentMainHostBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         fragmentMainHostBinding = FragmentMainHostBinding.inflate(inflater, container, false)
         return fragmentMainHostBinding.root
@@ -39,13 +38,13 @@ class MainHostFragment : Fragment(R.layout.fragment_main_host) {
         }.attach()
 
         fragmentMainHostBinding.floatingSearch.setOnClickListener {
-            Navigation.findNavController(it)
-                .navigate(R.id.action_mainHostFragment_to_searchFragment)
+            findNavController().navigate(
+                MainHostFragmentDirections.actionMainHostFragmentToSearchFragment("")
+            )
         }
 
         fragmentMainHostBinding.imgLikes.setOnClickListener {
-            Navigation.findNavController(it)
-                .navigate(R.id.action_mainHostFragment_to_likedFragment)
+            Navigation.findNavController(it).navigate(R.id.action_mainHostFragment_to_likedFragment)
         }
 
         fragmentMainHostBinding.imgMenu.setOnClickListener {

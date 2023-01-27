@@ -30,9 +30,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SinglePhotoWallpaperClick
     lateinit var singlePhotoListAdapter: SinglePhotoListAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         fragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
 
@@ -48,7 +46,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SinglePhotoWallpaperClick
             adapter = singlePhotoListAdapter
         }
 
-            viewLifecycleOwner.lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.homePicList.collectLatest { homePicList ->
                 singlePhotoListAdapter.submitData(homePicList)
             }
@@ -57,17 +55,11 @@ class HomeFragment : Fragment(R.layout.fragment_home), SinglePhotoWallpaperClick
     }
 
     override fun homeWallpaperClick(
-        urls: Urls,
-        user: User,
-        id: String,
-        name: String
+        urls: Urls, user: User, id: String, name: String
     ) {
         findNavController().navigate(
             MainHostFragmentDirections.actionMainHostFragmentToWallpaperPreviewFragment(
-                urls,
-                user,
-                id,
-                name
+                urls, user, id, name
             )
         )
     }

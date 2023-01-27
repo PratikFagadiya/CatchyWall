@@ -43,6 +43,10 @@
         <action
             android:id="@+id/action_searchFragment_to_userProfileFragment2"
             app:destination="@id/userProfileFragment2" />
+        <argument
+            android:name="sarchquery"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
     <fragment
@@ -80,6 +84,9 @@
         <argument
             android:name="userName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_wallpaperPreviewFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/collectionWallpaperListFragment"

@@ -4,20 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentWallpaperPreviewBinding
+import com.pratik.catchywall.presentation.adapters.TagChipAdapter
+import com.pratik.catchywall.presentation.callbacks.ChipTagClickListener
 import com.pratik.catchywall.presentation.viewmodels.PhotoViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import hilt_aggregated_deps._com_pratik_catchywall_presentation_viewmodels_HomeViewModel_HiltModules_BindsModule
 import timber.log.Timber
 
 @AndroidEntryPoint
-class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
+class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview),
+    ChipTagClickListener {
 
     private lateinit var fragmentWallpaperPreviewBinding: FragmentWallpaperPreviewBinding
     private val photoViewModel by viewModels<PhotoViewModel>()
+    lateinit var tagChipAdapter: TagChipAdapter
 
     private val userName by lazy {
         arguments?.let {
@@ -62,6 +69,14 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
 
         photoViewModel.getPhotoDetail(id.toString())
 
+        fragmentWallpaperPreviewBinding.recyclerViewTag.apply {
+            layoutManager = LinearLayoutManager(
+                context, LinearLayoutManager.HORIZONTAL, false
+            )
+            tagChipAdapter = TagChipAdapter(this@WallpaperPreviewFragment)
+            adapter = tagChipAdapter
+        }
+
         setUpObserver()
     }
 
@@ -69,6 +84,7 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
         photoViewModel.run {
             photoDetail.observe(viewLifecycleOwner) {
                 Timber.d("Photo View $it")
+                tagChipAdapter.differ.submitList(it.tags)
             }
         }
     }
@@ -79,6 +95,14 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
 
     fun onLikeUnlikeClick() {
         // TODO: Like Unlike Click Listener
+    }
+
+    override fun chipTagClick(chipName: String) {
+        Toast.makeText(context, chipName, Toast.LENGTH_SHORT).show()
+
+        findNavController().navigate(
+            WallpaperPreviewFragmentDirections.actionWallpaperPreviewFragmentToSearchFragment(chipName)
+        )
     }
 
 }
