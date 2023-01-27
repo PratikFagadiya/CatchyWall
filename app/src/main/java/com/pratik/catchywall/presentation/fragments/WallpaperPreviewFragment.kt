@@ -54,10 +54,11 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        fragmentWallpaperPreviewBinding.lifecycleOwner = this
         fragmentWallpaperPreviewBinding.fragment = this
         fragmentWallpaperPreviewBinding.urls = urls
         fragmentWallpaperPreviewBinding.user = userModel
+        fragmentWallpaperPreviewBinding.viewmodel = photoViewModel
 
         photoViewModel.getPhotoDetail(id.toString())
 
