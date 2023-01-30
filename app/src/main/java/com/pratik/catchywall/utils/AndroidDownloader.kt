@@ -3,6 +3,7 @@ package com.pratik.catchywall.utils
 import android.app.DownloadManager
 import android.content.Context
 import android.os.Build
+import android.os.Environment
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import com.pratik.catchywall.presentation.callbacks.Downloader
@@ -12,11 +13,11 @@ import com.pratik.catchywall.presentation.callbacks.Downloader
 //) : Downloader {
 //    private val downloadManager = context.getSystemService(DownloadManager::class.java)
 //
-////    override fun downloadFile(url: String): Long {
-////        val request = DownloadManager.Request(url.toUri())
-////            .setMimeType("image/*")
-////            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-////            .setTitle("Downloading File....")
-////
-////    }
+//    override fun downloadFile(url: String): Long {
+//        val request = DownloadManager.Request(url.toUri())
+//            .setMimeType("image/*")
+//            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+//            .setTitle("Downloading File....")
+//            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"")
+//    }
 //}

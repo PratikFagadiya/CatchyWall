@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
@@ -15,6 +14,7 @@ import com.pratik.catchywall.databinding.FragmentWallpaperPreviewBinding
 import com.pratik.catchywall.presentation.adapters.TagChipAdapter
 import com.pratik.catchywall.presentation.callbacks.ChipTagClickListener
 import com.pratik.catchywall.presentation.viewmodels.PhotoViewModel
+import com.pratik.catchywall.utils.Utils.downloadTask
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -91,6 +91,14 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview),
 
     fun onDownloadClick() {
         // TODO: download image from here
+
+        context?.let {
+            photoViewModel.photoDetail.value?.urls?.raw?.let { url ->
+                downloadTask(it, url)
+            }
+        }
+
+
     }
 
     fun onLikeUnlikeClick() {
@@ -101,7 +109,9 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview),
         Toast.makeText(context, chipName, Toast.LENGTH_SHORT).show()
 
         findNavController().navigate(
-            WallpaperPreviewFragmentDirections.actionWallpaperPreviewFragmentToSearchFragment(chipName)
+            WallpaperPreviewFragmentDirections.actionWallpaperPreviewFragmentToSearchFragment(
+                chipName
+            )
         )
     }
 
