@@ -11,7 +11,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:tabMode="fixed" />
+            app:tabIndicatorAnimationDuration="1000"
+            app:tabIndicatorFullWidth="false"
+            app:tabMode="fixed"
+            app:tabUnboundedRipple="true" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
@@ -26,11 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:src="@drawable/ic_baseline_search_24"
-            app:tint="@color/white"
             app:backgroundTint="@color/blue"
             app:layout_constraintBottom_toTopOf="@id/bottomAppBar"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/bottomAppBar"
+            app:tint="@color/white"
             tools:ignore="ContentDescription" />
 
         <LinearLayout

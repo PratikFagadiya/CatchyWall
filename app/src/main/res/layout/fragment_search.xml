@@ -54,7 +54,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/etSearch"
-            app:tabMode="fixed" />
+            app:tabIndicatorAnimationDuration="1000"
+            app:tabIndicatorFullWidth="false"
+            app:tabMode="fixed"
+            app:tabUnboundedRipple="true" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerSearch"

@@ -18,5 +18,6 @@
     <string name="likes">Likes</string>
     <string name="downloads">Downloads</string>
     <string name="search" tools:ignore="ExtraTranslation">Search</string>
+    <string name="will_be_implemented_in_future">Will be implemented in future</string>
 
 </resources>

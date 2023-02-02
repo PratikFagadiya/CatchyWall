@@ -6,9 +6,11 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="LIKED"
+            android:textAllCaps="true"
+            android:text="@string/will_be_implemented_in_future"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
