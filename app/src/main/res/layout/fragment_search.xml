@@ -21,19 +21,16 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <TextView
+                android:id="@+id/txtCollectionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:src="@drawable/baseline_arrow_back_24" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="SEARCH"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:padding="15dp"
+                android:text="@string/search"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -41,9 +38,15 @@
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:hint="Search"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/search_text_background"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/search"
+            android:padding="15dp"
             android:text="@={searchViewModel.userSearchQuery}"
+            android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@id/linearToolbar" />
 
         <com.google.android.material.tabs.TabLayout

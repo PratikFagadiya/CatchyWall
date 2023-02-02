@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CatchyWall</string>
 
     <!--Extra Strings-->
@@ -17,4 +17,6 @@
     <string name="dimensions">Dimensions</string>
     <string name="likes">Likes</string>
     <string name="downloads">Downloads</string>
+    <string name="search" tools:ignore="ExtraTranslation">Search</string>
+
 </resources>
