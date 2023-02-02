@@ -32,4 +32,8 @@
         # Required.
     </style>-->
 
+    <style name="chipText" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
 </resources>

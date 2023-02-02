@@ -9,4 +9,12 @@
     <string name="users">Users</string>
     <string name="collection">Collection</string>
     <string name="collections">Collections</string>
+    <string name="camera">Camera</string>
+    <string name="focus_length">Focus Length</string>
+    <string name="iso">ISO</string>
+    <string name="aperture">Aperture</string>
+    <string name="shutter_speed">Shutter Speed</string>
+    <string name="dimensions">Dimensions</string>
+    <string name="likes">Likes</string>
+    <string name="downloads">Downloads</string>
 </resources>

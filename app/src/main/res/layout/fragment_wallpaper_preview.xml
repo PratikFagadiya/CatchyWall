@@ -29,18 +29,15 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
-                android:fitsSystemWindows="true"
                 android:minHeight="200dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 tools:background="@color/black">
@@ -59,7 +56,8 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            app:behavior_hideable="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
@@ -85,12 +83,16 @@
                         tools:src="@tools:sample/avatars" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:maxLines="1"
                         android:text="@{user.first_name + ` ` + user.last_name}"
+                        android:textColor="@color/text_dark_color"
                         app:layout_constraintBottom_toBottomOf="@id/imgUserProfile"
-                        app:layout_constraintLeft_toRightOf="@id/imgUserProfile"
+                        app:layout_constraintEnd_toStartOf="@id/imgDownload"
+                        app:layout_constraintStart_toEndOf="@id/imgUserProfile"
                         app:layout_constraintTop_toTopOf="@id/imgUserProfile"
                         tools:text="Hello World" />
 
@@ -118,9 +120,16 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#34000000" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:padding="20dp">
 
@@ -131,45 +140,66 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Camera" />
+                            android:layout_marginEnd="20dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:maxLines="1"
+                            android:text="@string/camera" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{viewmodel.photoDetail.exif.name}" />
+                            android:text="@{viewmodel.photoDetail.exif.name}"
+                            android:textSize="12sp"
+                            tools:text="" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15sp"
-                            android:text="Focus Length" />
+                            android:layout_marginEnd="20dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:maxLines="1"
+                            android:text="@string/focus_length" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{viewmodel.photoDetail.exif.focal_length}" />
+                            android:text="@{viewmodel.photoDetail.exif.focal_length}"
+                            android:textSize="12sp"
+                            tools:text="" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15sp"
-                            android:text="Iso" />
+                            android:layout_marginEnd="20dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:maxLines="1"
+                            android:text="@string/iso" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{String.valueOf(viewmodel.photoDetail.exif.iso)}" />
+                            android:text="@{String.valueOf(viewmodel.photoDetail.exif.iso)}"
+                            android:textSize="12sp"
+                            tools:text="" />
 
                     </LinearLayout>
 
@@ -179,51 +209,78 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Aperture" />
+                            android:layout_marginEnd="20dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:maxLines="1"
+                            android:text="@string/aperture" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{viewmodel.photoDetail.exif.aperture + ` s`}" />
+                            android:text="@{viewmodel.photoDetail.exif.aperture + ` s`}"
+                            android:textSize="12sp"
+                            tools:text="" />
+
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15sp"
-                            android:text="Shutter Speed" />
+                            android:layout_marginEnd="20dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:maxLines="1"
+                            android:text="@string/shutter_speed" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{viewmodel.photoDetail.exif.exposure_time}" />
+                            android:text="@{viewmodel.photoDetail.exif.exposure_time}"
+                            android:textSize="12sp"
+                            tools:text="" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15sp"
-                            android:text="Dimensions" />
+                            android:layout_marginEnd="20dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:maxLines="1"
+                            android:text="@string/dimensions" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{String.valueOf(viewmodel.photoDetail.width  + `*` + viewmodel.photoDetail.height)}" />
-
+                            android:text="@{String.valueOf(viewmodel.photoDetail.width  + `*` + viewmodel.photoDetail.height)}"
+                            android:textSize="12sp"
+                            tools:text="" />
 
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#34000000" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -242,18 +299,26 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Likes" />
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="@string/likes" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{String.valueOf(viewmodel.photoDetail.likes)}" />
-
+                            android:text="@{String.valueOf(viewmodel.photoDetail.likes)}"
+                            android:textSize="12sp"
+                            tools:text="220" />
 
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#34000000" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -266,19 +331,28 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Downloads" />
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="@string/downloads" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
+                            android:fontFamily="@font/poppins_medium"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:text="@{String.valueOf(viewmodel.photoDetail.downloads)}" />
+                            android:text="@{String.valueOf(viewmodel.photoDetail.downloads)}"
+                            android:textSize="12sp"
+                            tools:text="220" />
 
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#34000000" />
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipGroup"
