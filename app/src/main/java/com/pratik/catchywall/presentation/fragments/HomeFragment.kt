@@ -55,11 +55,11 @@ class HomeFragment : Fragment(R.layout.fragment_home), SinglePhotoWallpaperClick
     }
 
     override fun homeWallpaperClick(
-        urls: Urls, user: User, id: String, name: String
+        urls: Urls, user: User, id: String
     ) {
         findNavController().navigate(
             MainHostFragmentDirections.actionMainHostFragmentToWallpaperPreviewFragment(
-                urls, user, id, name
+                urls, user, id
             )
         )
     }

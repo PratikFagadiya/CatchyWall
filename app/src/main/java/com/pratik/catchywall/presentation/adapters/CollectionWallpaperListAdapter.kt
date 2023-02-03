@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pratik.catchywall.data.model.CollectionWallpaperListModelItem
 import com.pratik.catchywall.databinding.ItemLayoutCollectionWallpaperBinding
+import com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener
 
-class CollectionWallpaperListAdapter :
+class CollectionWallpaperListAdapter(private val singlePhotoWallpaperClickListener: SinglePhotoWallpaperClickListener) :
     PagingDataAdapter<CollectionWallpaperListModelItem, CollectionWallpaperListAdapter.ViewHolder>(
         diffCallback = DiffUtilCallback()
     ) {
@@ -18,8 +19,12 @@ class CollectionWallpaperListAdapter :
 
         private val itemBinding: ItemLayoutCollectionWallpaperBinding = item
 
-        fun bindView(collectionWallpaperListModelItem: CollectionWallpaperListModelItem?) {
+        fun bindView(
+            collectionWallpaperListModelItem: CollectionWallpaperListModelItem?,
+            singlePhotoWallpaperClickListener: SinglePhotoWallpaperClickListener
+        ) {
             itemBinding.collectionWallpaperListModel = collectionWallpaperListModelItem
+            itemBinding.singlePhotoWallpaperClickListener = singlePhotoWallpaperClickListener
         }
 
     }
@@ -34,7 +39,7 @@ class CollectionWallpaperListAdapter :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindView(getItem(position))
+        holder.bindView(getItem(position), singlePhotoWallpaperClickListener)
     }
 
 

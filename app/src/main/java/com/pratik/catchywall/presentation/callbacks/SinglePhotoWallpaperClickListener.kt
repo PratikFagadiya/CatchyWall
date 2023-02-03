@@ -6,6 +6,6 @@ import com.pratik.catchywall.data.model.User
 interface SinglePhotoWallpaperClickListener {
     fun homeWallpaperClick(
         urls: Urls,
-        user: User, id: String, name: String
+        user: User, id: String
     )
 }

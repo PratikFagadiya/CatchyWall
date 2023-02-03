@@ -8,17 +8,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
+import com.pratik.catchywall.data.model.Urls
+import com.pratik.catchywall.data.model.User
 import com.pratik.catchywall.databinding.FragmentCollectionWallpaperListBinding
 import com.pratik.catchywall.presentation.adapters.CollectionWallpaperListAdapter
+import com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener
 import com.pratik.catchywall.presentation.viewmodels.CollectionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CollectionWallpaperListFragment : Fragment(R.layout.fragment_collection_wallpaper_list) {
+class CollectionWallpaperListFragment : Fragment(R.layout.fragment_collection_wallpaper_list),
+    SinglePhotoWallpaperClickListener {
 
     private lateinit var fragmentCollectionWallpaperListBinding: FragmentCollectionWallpaperListBinding
 
@@ -32,9 +37,7 @@ class CollectionWallpaperListFragment : Fragment(R.layout.fragment_collection_wa
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         fragmentCollectionWallpaperListBinding =
@@ -45,11 +48,10 @@ class CollectionWallpaperListFragment : Fragment(R.layout.fragment_collection_wa
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.i("MYCOLLECTIONIDS", "onViewCreated: $collectionId")
-
         fragmentCollectionWallpaperListBinding.rvCollectionWallpaper.apply {
             layoutManager = LinearLayoutManager(context)
-            collectionWallpaperListAdapter = CollectionWallpaperListAdapter()
+            collectionWallpaperListAdapter =
+                CollectionWallpaperListAdapter(this@CollectionWallpaperListFragment)
             adapter = collectionWallpaperListAdapter
         }
 
@@ -59,6 +61,14 @@ class CollectionWallpaperListFragment : Fragment(R.layout.fragment_collection_wa
                     collectionWallpaperListAdapter.submitData(collectionWallpaperList)
                 }
         }
+    }
+
+    override fun homeWallpaperClick(urls: Urls, user: User, id: String) {
+        findNavController().navigate(
+            CollectionWallpaperListFragmentDirections.actionCollectionWallpaperListFragmentToWallpaperPreviewFragment(
+                urls, user, id
+            )
+        )
     }
 
 }

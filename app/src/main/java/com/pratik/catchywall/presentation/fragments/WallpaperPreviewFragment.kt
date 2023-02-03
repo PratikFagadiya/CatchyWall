@@ -26,12 +26,6 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview),
     private val photoViewModel by viewModels<PhotoViewModel>()
     lateinit var tagChipAdapter: TagChipAdapter
 
-    private val userName by lazy {
-        arguments?.let {
-            WallpaperPreviewFragmentArgs.fromBundle(it).userName
-        }
-    }
-
     private val id by lazy {
         arguments?.let {
             WallpaperPreviewFragmentArgs.fromBundle(it).id
@@ -49,7 +43,6 @@ class WallpaperPreviewFragment : Fragment(R.layout.fragment_wallpaper_preview),
             WallpaperPreviewFragmentArgs.fromBundle(it).urlsModel
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

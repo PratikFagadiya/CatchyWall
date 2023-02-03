@@ -7,6 +7,10 @@
             name="userProfileLikes"
             type="com.pratik.catchywall.data.model.UserProfileLikesModelItem" />
 
+        <variable
+            name="singlePhotoWallpaperClickListener"
+            type="com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,6 +25,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:elevation="10dp"
+            android:onClick="@{() ->  singlePhotoWallpaperClickListener.homeWallpaperClick(userProfileLikes.urls,userProfileLikes.user,userProfileLikes.id)}"
             app:cardBackgroundColor="@color/black"
             app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"

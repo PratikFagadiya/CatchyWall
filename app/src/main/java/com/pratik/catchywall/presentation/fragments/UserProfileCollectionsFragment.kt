@@ -7,17 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
 import com.pratik.catchywall.databinding.FragmentUserProfileCollectionsBinding
 import com.pratik.catchywall.presentation.adapters.UserProfileCollectionListAdapter
+import com.pratik.catchywall.presentation.callbacks.CollectionWallpaperListClickListener
 import com.pratik.catchywall.presentation.viewmodels.UserProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class UserProfileCollectionsFragment : Fragment(R.layout.fragment_user_profile_collections) {
+class UserProfileCollectionsFragment : Fragment(R.layout.fragment_user_profile_collections),
+    CollectionWallpaperListClickListener {
 
     lateinit var fragmentUserProfileCollectionsBinding: FragmentUserProfileCollectionsBinding
 
@@ -38,9 +41,7 @@ class UserProfileCollectionsFragment : Fragment(R.layout.fragment_user_profile_c
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         fragmentUserProfileCollectionsBinding =
@@ -54,18 +55,28 @@ class UserProfileCollectionsFragment : Fragment(R.layout.fragment_user_profile_c
 
         fragmentUserProfileCollectionsBinding.rvUserProfileCollections.apply {
             layoutManager = LinearLayoutManager(context)
-            userProfileCollectionListAdapter = UserProfileCollectionListAdapter()
+            userProfileCollectionListAdapter =
+                UserProfileCollectionListAdapter(this@UserProfileCollectionsFragment)
             adapter = userProfileCollectionListAdapter
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            userprofileViewModel.getUserProfileCollectionsList(userName!!).collectLatest { userProfileCollectionList->
-                userProfileCollectionListAdapter.submitData(
-                    userProfileCollectionList
-                )
-            }
+            userprofileViewModel.getUserProfileCollectionsList(userName!!)
+                .collectLatest { userProfileCollectionList ->
+                    userProfileCollectionListAdapter.submitData(
+                        userProfileCollectionList
+                    )
+                }
         }
 
+    }
+
+    override fun collectionWallpaperListClick(collectionId: String) {
+        findNavController().navigate(
+            UserProfileFragmentDirections.actionUserProfileFragment2ToCollectionWallpaperListFragment(
+                collectionId
+            )
+        )
     }
 
 }

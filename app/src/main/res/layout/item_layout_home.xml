@@ -27,7 +27,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:elevation="10dp"
-            android:onClick="@{() -> homeWallpaperClickListener.homeWallpaperClick(homeResponseModelItem.urls,homeResponseModelItem.user,homeResponseModelItem.id,homeResponseModelItem.user.name)}"
+            android:onClick="@{() -> homeWallpaperClickListener.homeWallpaperClick(homeResponseModelItem.urls,homeResponseModelItem.user,homeResponseModelItem.id)}"
             app:cardBackgroundColor="@color/black"
             app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"

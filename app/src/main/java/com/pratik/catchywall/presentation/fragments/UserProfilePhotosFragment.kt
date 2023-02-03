@@ -7,17 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pratik.catchywall.R
+import com.pratik.catchywall.data.model.Urls
+import com.pratik.catchywall.data.model.User
 import com.pratik.catchywall.databinding.FragmentUserProfilePhotosBinding
 import com.pratik.catchywall.presentation.adapters.UserProfilePhotosListAdapter
+import com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener
 import com.pratik.catchywall.presentation.viewmodels.UserProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos) {
+class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos),
+    SinglePhotoWallpaperClickListener {
 
     private lateinit var fragmentUserProfilePhotosBinding: FragmentUserProfilePhotosBinding
     private val userProfileViewModel by viewModels<UserProfileViewModel>()
@@ -37,9 +42,7 @@ class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         fragmentUserProfilePhotosBinding =
             FragmentUserProfilePhotosBinding.inflate(inflater, container, false)
@@ -51,7 +54,8 @@ class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos
 
         fragmentUserProfilePhotosBinding.rvUserProfilePhotos.apply {
             layoutManager = LinearLayoutManager(context)
-            userProfilePhotosListAdapter = UserProfilePhotosListAdapter()
+            userProfilePhotosListAdapter =
+                UserProfilePhotosListAdapter(this@UserProfilePhotosFragment)
             adapter = userProfilePhotosListAdapter
         }
 
@@ -61,5 +65,13 @@ class UserProfilePhotosFragment : Fragment(R.layout.fragment_user_profile_photos
                     userProfilePhotosListAdapter.submitData(userProfilePhotosList)
                 }
         }
+    }
+
+    override fun homeWallpaperClick(urls: Urls, user: User, id: String) {
+        findNavController().navigate(
+            UserProfileFragmentDirections.actionUserProfileFragment2ToWallpaperPreviewFragment(
+                urls, user, id
+            )
+        )
     }
 }

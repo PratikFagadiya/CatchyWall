@@ -7,6 +7,10 @@
             name="collectionWallpaperListModel"
             type="com.pratik.catchywall.data.model.CollectionWallpaperListModelItem" />
 
+        <variable
+            name="singlePhotoWallpaperClickListener"
+            type="com.pratik.catchywall.presentation.callbacks.SinglePhotoWallpaperClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,6 +25,7 @@
             android:layout_height="0dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:onClick="@{() ->  singlePhotoWallpaperClickListener.homeWallpaperClick(collectionWallpaperListModel.urls,collectionWallpaperListModel.user,collectionWallpaperListModel.id)}"
             android:layout_marginRight="10dp"
             android:elevation="10dp"
             app:cardBackgroundColor="@color/black"

@@ -61,13 +61,12 @@ class SearchPhotosFragment : Fragment(R.layout.fragment_search_photos),
 
     }
 
-    override fun homeWallpaperClick(urls: Urls, user: User, id: String, name: String) {
+    override fun homeWallpaperClick(urls: Urls, user: User, id: String) {
         findNavController().navigate(
             SearchFragmentDirections.actionSearchFragmentToWallpaperPreviewFragment(
                 urls,
                 user,
-                id,
-                name
+                id
             )
         )
 

@@ -61,6 +61,12 @@
         <argument
             android:name="userProfileMode"
             app:argType="com.pratik.catchywall.data.model.User" />
+        <action
+            android:id="@+id/action_userProfileFragment2_to_collectionWallpaperListFragment"
+            app:destination="@id/collectionWallpaperListFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment2_to_wallpaperPreviewFragment"
+            app:destination="@id/wallpaperPreviewFragment" />
     </fragment>
 
     <dialog
@@ -81,9 +87,6 @@
         <argument
             android:name="id"
             app:argType="string" />
-        <argument
-            android:name="userName"
-            app:argType="string" />
         <action
             android:id="@+id/action_wallpaperPreviewFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -95,6 +98,9 @@
         <argument
             android:name="collectionId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_collectionWallpaperListFragment_to_wallpaperPreviewFragment"
+            app:destination="@id/wallpaperPreviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchPhotosFragment"

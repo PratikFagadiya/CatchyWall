@@ -7,6 +7,10 @@
             name="userProfileCollectionModel"
             type="com.pratik.catchywall.data.model.UserProfileCollectionsModelItem" />
 
+        <variable
+            name="collectionWallpaperListClickListener"
+            type="com.pratik.catchywall.presentation.callbacks.CollectionWallpaperListClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="10dp"
+            android:onClick="@{() -> collectionWallpaperListClickListener.collectionWallpaperListClick(userProfileCollectionModel.id)}"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:elevation="10dp"
