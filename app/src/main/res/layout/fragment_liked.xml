@@ -6,11 +6,11 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAllCaps="true"
+            android:gravity="center"
             android:text="@string/will_be_implemented_in_future"
+            android:textAllCaps="true"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
