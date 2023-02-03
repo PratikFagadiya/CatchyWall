@@ -8,11 +8,12 @@ Catchy Wall is simple wallpaper application which using unsplash API for beautif
 
 ## Built With 🛠
 
-- [Kotlin](https://kotlinlang.org/) - Official programming language for Android App development.
-- [Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) - A flow is an asynchronous
-  version of a Sequence, a type of collection whose values are lazily produced.
+- [Kotlin](https://kotlinlang.org/) 
+    - Official programming language for Android App development.
+- [Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) 
+    - A flow is an asynchronous version of a Sequence, a type of collection whose values are lazily produced.
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) 
-  - Collection of libraries that help you design, testable, and maintainable apps.
+    - Collection of libraries that help you design, testable, and maintainable apps.
       - [Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) 
           - A flow is an asynchronous version of a Sequence, a type of collection whose values are lazily produced.
       - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) 
