@@ -5,6 +5,7 @@ import android.content.Context
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Environment
+import android.widget.Toast
 import timber.log.Timber
 import java.io.File
 import java.text.SimpleDateFormat
@@ -46,6 +47,10 @@ object Utils {
             return false
         }
         return true
+    }
+
+    fun showToast(context: Context, msg: String) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
 }
