@@ -10,7 +10,7 @@ Catchy Wall is simple wallpaper application which using unsplash API for beautif
 
 *Made with love ❤️ by [Pratik Fagadiya](https://github.com/PratikFagadiya)*
 
-## Built With 🛠
+## Built With 🛠  (What you will learn?)
 
 - [Kotlin](https://kotlinlang.org/)
     - Official programming language for Android App development.
@@ -53,6 +53,18 @@ Catchy Wall is simple wallpaper application which using unsplash API for beautif
 ![](https://camo.githubusercontent.com/d24f2f8414437a9491ea3145cafd373167315d50/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6275696c742d776974682d6c6f76652e737667) ![](https://camo.githubusercontent.com/e82fcde6b4952d69611ae4cf507b13fe6ae8e028/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6275696c742d666f722d616e64726f69642e737667)
 <br>
 
+
+### ⚙️ Run a project
+
+> **Note**
+> Create new unsplash API key and add client id and api key in `local.properties` as `CLIENT_ID="[your_client_id]"` and `BASE_URL="[https://api.unsplash.com/]"` then Sync project with gradle file to run it.
+
+
+# Features will be add in future
+- [ ] Liked / unliked wallpaper
+- [ ] Implement dark and light mode
+- [ ] Splash API
+- [ ] App logo
 
 
 # Donate
