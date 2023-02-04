@@ -50,6 +50,36 @@ Catchy Wall is simple wallpaper application which using unsplash API for beautif
     - This is a logger with a small, extensible API which provides utility on top of Android's
       normal Log class.
 
+![](https://camo.githubusercontent.com/d24f2f8414437a9491ea3145cafd373167315d50/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6275696c742d776974682d6c6f76652e737667) ![](https://camo.githubusercontent.com/e82fcde6b4952d69611ae4cf507b13fe6ae8e028/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6275696c742d666f722d616e64726f69642e737667)
+<br>
+
+
+
+# Donate
+
+> If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
+>
+> [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](buymeacoffee.com/pratikf)
+
+
+## Find this project useful ? ❤️
+
+- Support it by clicking the ⭐️ button on the upper right of this page. ✌️
+
 ## Contribution 🤝
 
 - 😍 If you would like to contribute you're most welcome! 💛
+
+
+## Connect with me
+<div align="left">
+<a href="https://twitter.com/DSCJSSATEN" target="https://twitter.com/PFagadiya">
+<img src=https://img.shields.io/badge/twitter-%2300acee.svg?&style=for-the-badge&logo=twitter&logoColor=white alt=twitter style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.linkedin.com/company/dsc-jssaten/" target="https://www.linkedin.com/in/pratik-fagadiya-79b8081b0/">
+<img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.instagram.com/dscjssaten/?igshid=9ubqtp1ssqsi" target="https://www.instagram.com/patrik.codes/?next=%2Fpatcoder%2F&hl=en">
+<img src=https://img.shields.io/badge/instagram-%23000000.svg?&style=for-the-badge&logo=instagram&logoColor=white alt=instagram style="margin-bottom: 5px;" />
+</a> 
+</div> 
