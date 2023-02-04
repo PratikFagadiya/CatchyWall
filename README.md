@@ -59,7 +59,7 @@ Catchy Wall is simple wallpaper application which using unsplash API for beautif
 
 > If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
 >
-> [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](buymeacoffee.com/pratikf)
+> [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/pratikf)
 
 
 ## Find this project useful ? ❤️
